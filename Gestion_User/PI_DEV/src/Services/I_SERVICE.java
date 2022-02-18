@@ -8,6 +8,7 @@ import java.util.List;
 /**
  *
  * @author Rayen
+ * @param <T>
  */
 public interface I_SERVICE <T> {
    void insert(T t); 

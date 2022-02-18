@@ -27,7 +27,14 @@ public class ClientServices implements I_SERVICE<Client>{
 
         @Override
     public void insert(Client c) {
-        String req = "INSERT INTO client (nom,prenom,age,taille,email,poids) VALUES ('" + c.getNom() + "','" + c.getPrenom() + "','" + c.getAge()+ "','" + c.getTaille()+ "','" + c.getEmail()+ "','" + c.getPoids()+ "')";
+        String req = "INSERT INTO user (nom,prenom,email,pseudo,mdp,tel,age,role,salaire)"
+                + " VALUES ('" + c.getNom() + "','" + c.getPrenom() + "',"
+                + "'" + c.getEmail()+ "',"
+                + "'" + c.getPseudo()+ "',"
+                + "'" + c.getMdp()+ "',"
+                + "'" + c.getTel()+ "',"
+                + "'" + c.getAge()+ "',"
+                + "'" + c.getRole()+ "' ,0 )";
         try {
             ste = conn.createStatement();
             ste.executeUpdate(req);
@@ -38,7 +45,7 @@ public class ClientServices implements I_SERVICE<Client>{
 
     @Override
     public void delete(Client c) {
-        String req="DELETE FROM client WHERE id_client='"+c.getId_client()+"'";
+        String req="DELETE FROM user WHERE id_user='"+c.getId_user()+"'";
         try {
             ste = conn.createStatement();
              ste.executeUpdate(req);
@@ -50,7 +57,7 @@ public class ClientServices implements I_SERVICE<Client>{
 
     @Override
     public void update(Client c) {
-     String req = "UPDATE client SET (nom ='" + c.getNom() + "',prenom ='" + c.getPrenom() + "',pseudo='" + c.getPseudo()+ "',mdp = '" + c.getMdp()+ "',age ='" + c.getAge()+ "',taille = '" + c.getTaille()+ "',email='" + c.getPoids()+ "',poids='" + c.getPoids()+ "') WHERE id = '"+c.getId_client()+"'";
+     String req = "UPDATE user SET (nom ='" + c.getNom() + "',prenom ='" + c.getPrenom() + "',email='" + c.getEmail()+ "',pseudo='" + c.getPseudo()+ "',mdp = '" + c.getMdp()+ "',tel = '" + c.getTel()+ "',age ='" + c.getAge()+ "',role='" + c.getRole()+ "') WHERE id_user = '"+c.getId_user()+"'";
         try {
             ste = conn.createStatement();
             ste.executeUpdate(req);
@@ -61,13 +68,13 @@ public class ClientServices implements I_SERVICE<Client>{
 
     @Override
     public List<Client> read() {
-                  String req="select * from client"; //  SELECT *FROM client FULL JOIN login ON client.id_client = login.id_user 
+                  String req="select * from user"; //  SELECT *FROM client FULL JOIN login ON client.id_client = login.id_user 
                     List<Client> list=new ArrayList<>();
         try {
             ste=conn.createStatement();
             rs= ste.executeQuery(req);
             while(rs.next()){
-                list.add(new Client(rs.getInt("id_client"), rs.getString("nom"),rs.getString("prenom"), rs.getInt("age"),rs.getInt("taille"),rs.getString("email"),rs.getInt("poids")));
+                list.add(new Client(rs.getInt("id_user"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("pseudo"),rs.getString("mdp"),rs.getInt("tel"),rs.getInt("age"),rs.getString("role")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ClientServices.class.getName()).log(Level.SEVERE, null, ex);
@@ -78,14 +85,15 @@ public class ClientServices implements I_SERVICE<Client>{
     @Override
     public Client readById(int id) {
       Client C =new Client();
-         String req="select * from client WHERE id_client='"+id+"'";  //SELECT *FROM client FULL JOIN login ON client.id_login = login.id_login
+         String req="select * from user WHERE id_user='"+id+"'";  //SELECT *FROM client FULL JOIN login ON client.id_login = login.id_login
         try {
             ste=conn.createStatement();
              rs= ste.executeQuery(req);
-     C= new Client(rs.getInt("id_client"), rs.getString("nom"),rs.getString("prenom"), rs.getInt("age"),rs.getInt("taille"),rs.getString("email"),rs.getInt("poids"));
+     C= new Client(rs.getInt("id_user"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("pseudo"),rs.getString("mdp"),rs.getInt("tel"),rs.getInt("age"),rs.getString("role"));
         } catch (SQLException ex) {
             Logger.getLogger(ClientServices.class.getName()).log(Level.SEVERE, null, ex);
         }
         return C;
     }
+
 }

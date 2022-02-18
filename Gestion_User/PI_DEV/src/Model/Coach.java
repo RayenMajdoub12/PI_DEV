@@ -5,84 +5,87 @@
  */
 package Model;
 
+import java.util.Objects;
+
 /**
  *
  * @author Rayen
  */
-public class Coach extends Login {
-    private int id_coach ;
-    private  String nom ;
-    private  String prenom ;
-    private  String email ;
+public class Coach extends Client {
+
     private  String specialite ;
-    private  int telephone ;
+    private  int salaire ;
 
     public Coach() {
     }
-
-    public Coach(int id_coach, String nom, String prenom, String email, String specialite, int telephone, int id_login, String pseudo, String mdp, String role) {
-        super(id_login, pseudo, mdp, role);
-        this.id_coach = id_coach;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.email = email;
+//constructeur solo
+    public Coach(String specialite, int salaire) {
         this.specialite = specialite;
-        this.telephone = telephone;
+        this.salaire = salaire;
     }
-
-    public int getId_coach() {
-        return id_coach;
+//constructeur avec id_user
+    public Coach(int id_user, String nom, String prenom, String email, String pseudo, String mdp, int tel, int age, String role,String specialite, int salaire) {
+        super(id_user, nom, prenom, email, pseudo, mdp, tel, age, role);
+        this.specialite = specialite;
+        this.salaire = salaire;
     }
-
-    public void setId_coach(int id_coach) {
-        this.id_coach = id_coach;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+//constructeur sans id_user
+    public Coach( String nom, String prenom, String email, String pseudo, String mdp, int tel, int age, String role ,String specialite, int salaire) {
+        super(nom, prenom, email, pseudo, mdp, tel, age, role);
+        this.specialite = specialite;
+        this.salaire = salaire;
     }
 
     public String getSpecialite() {
         return specialite;
     }
 
-    public void setSpecialité(String specialite) {
+    public void setSpecialite(String specialite) {
         this.specialite = specialite;
     }
 
-    public int getTelephone() {
-        return telephone;
+    public int getSalaire() {
+        return salaire;
     }
 
-    public void setTelephone(int telephone) {
-        this.telephone = telephone;
+    public void setSalaire(int salaire) {
+        this.salaire = salaire;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Coach other = (Coach) obj;
+        if (this.salaire != other.salaire) {
+            return false;
+        }
+        return Objects.equals(this.specialite, other.specialite);
     }
 
     @Override
     public String toString() {
-        return "Coach{" + "id_coach=" + id_coach + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", specialite=" + specialite + ", telephone=" + telephone + '}';
+        return "Coach{" + "specialite=" + specialite + ", salaire=" + salaire + '}';
     }
 
+   
+  
+    
+
+   
  
      
 }
