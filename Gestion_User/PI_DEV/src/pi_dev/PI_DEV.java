@@ -8,6 +8,11 @@ import Model.Client ;
 import Services.ClientServices ;
 import Model.Coach ;
 import Services.CoachServices ;
+import Services.GeneralServices ;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -26,6 +31,17 @@ public class PI_DEV {
         s.insert(C);
         s1.insert(C1);
         s.read();
-    }
+        GeneralServices GS =new GeneralServices();
+        try {
+            ;
+            GS.sendMail("raybahta12@gmail.com",GS. Token_Mdp_Oublie ("raybahta12@gmail.com"));
+        } catch (Exception ex) {
+            Logger.getLogger(PI_DEV.class.getName()).log(Level.SEVERE, null, ex);
+        }
+//         Random rand = new Random();
+//       int token = rand.nextInt(99999);
+//        System.out.println(token);
+
     
+}
 }
