@@ -14,6 +14,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Conn.Datasource;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import javax.mail.*;
 import java.util.Properties;
 import java.util.Random;
@@ -34,7 +37,9 @@ public class GeneralServices {
         conn = Datasource.getInstance().getCnx();
     }
 
-    public int Login(String pseudo,String mdp)//authentification
+    
+    // AUTHENTIFICATION
+    public int Login(String pseudo,String mdp)
     {
         String req="select id_user from user WHERE pseudo='"+pseudo+"'AND mdp='"+mdp+"'";  
           try {
@@ -49,18 +54,47 @@ public class GeneralServices {
           }
      }
 
+  
+
+
+
+//password encryption
     
+    public String EncryptMdp (String mdp_input) 
+    {
+ 
+     try {
+              MessageDigest   messageDigest = MessageDigest.getInstance("MD5");
+             messageDigest. update(mdp_input.getBytes());
+             byte[] resultByteArray = messageDigest.digest();
+              StringBuilder sb = new StringBuilder();
+          for (byte b : resultByteArray)
+          {
+        sb.append (String.format("%02x", b));
+           }
+             return sb.toString();
+      } catch (NoSuchAlgorithmException ex) {
+              Logger.getLogger(GeneralServices.class.getName()).log(Level.SEVERE, null, ex);
+      } 
+     return "";
+ 
+       }
+
+
+
+
+// MOT DE PASSE OUBLIé  
    public String Token_Mdp_Oublie (String pseudo_ou_mail) // générer le token  
    {   Random rand = new Random();
        int token = rand.nextInt(99999);
-     String req = "UPDATE user SET (token_mdp ='" +token+ "') WHERE  pseudo='"+pseudo_ou_mail+"'OR email='"+pseudo_ou_mail+"'";
-        try {
-            ste = conn.createStatement();
-            ste.executeUpdate(req);
-            System.out.println("token envoyé par mail");
-        } catch (SQLException ex) {
-            Logger.getLogger(CoachServices.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//     String req = "UPDATE user SET (token_mdp ='" +token+ "') WHERE  pseudo='"+pseudo_ou_mail+"'OR email='"+pseudo_ou_mail+"'";
+//        try {
+//            ste = conn.createStatement();
+//            ste.executeUpdate(req);
+//            System.out.println("token envoyé par mail");
+//        } catch (SQLException ex) {
+//            Logger.getLogger(CoachServices.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
         return " <!doctype html>\n" +
 "<html lang=\"en-US\">\n" +
@@ -139,8 +173,7 @@ public class GeneralServices {
 "</html> ";
     } 
    
-   
-           public boolean VerifyToken(String pseudo_ou_mail,int token_user) // chercher le token
+   public  boolean VerifyToken(String pseudo_ou_mail,int token_user) // chercher le token
     {     int token ;
           String req="select token_mdp from user WHERE pseudo='"+pseudo_ou_mail+"'OR email='"+pseudo_ou_mail+"'";   
           try {
@@ -154,8 +187,14 @@ public class GeneralServices {
           }
             return false;   
         }
+         
            
-          public static void sendMail(String recepient,String htmlCode) throws Exception {
+
+
+
+// MAILING
+           
+    public static void sendMail(String recepient,String htmlCode) throws Exception {
         System.out.println("Preparing to send email");
         Properties properties = new Properties();
 
