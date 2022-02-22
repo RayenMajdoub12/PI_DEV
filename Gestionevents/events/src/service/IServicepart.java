@@ -9,17 +9,15 @@ import java.util.List;
 
 /**
  *
- * @author mohamedguesmi
- * @param <T>
+ * @author Mohamed
  */
-public interface IService<T> {
-   void insert(T t);
-   void delete(T t);
+public interface IServicepart<P> {
+   void insert(P p);
+   void delete(P p);
    
-   void update(T t);
-    List<T>read();
+   void update(P p);
+    List<P>read();
     
-    T readById(int id);
-    
+    P readById(int idpart);
+     
 }
-

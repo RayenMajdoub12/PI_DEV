@@ -13,17 +13,17 @@ import java.util.Objects;
  * @author Mohamed
  */
 public class Evenements {
-     private int id ;
+     private int idevent ;
     private String nom;
     private int prix;
     private String lieu;
-    private Date datedebut;
-    private Date datefin;
+    private String datedebut;
+    private String datefin;
     private String description;
     
 
-    public Evenements(int id, String nom, int prix, String lieu, Date datedebut, Date datefin, String description) {
-        this.id = id;
+    public Evenements(int idevent, String nom, int prix, String lieu, String datedebut, String datefin, String description) {
+        this.idevent = idevent;
         this.nom = nom;
         this.prix = prix;
         this.lieu = lieu;
@@ -35,7 +35,7 @@ public class Evenements {
 
     public Evenements() {
     }
-public Evenements( String nom, int prix, String lieu, Date datedebut, Date datefin, String description) {
+public Evenements( String nom, int prix, String lieu, String datedebut, String datefin, String description) {
        
         this.nom = nom;
         this.prix = prix;
@@ -44,12 +44,12 @@ public Evenements( String nom, int prix, String lieu, Date datedebut, Date datef
         this.datefin = datefin;
         this.description = description;
     }
-    public int getId() {
-        return id;
+    public int getidevent() {
+        return idevent;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setidevent(int id) {
+        this.idevent = idevent;
     }
 
     public String getNom() {
@@ -76,19 +76,19 @@ public Evenements( String nom, int prix, String lieu, Date datedebut, Date datef
         this.lieu = lieu;
     }
 
-    public Date getDatedebut() {
+    public String getDatedebut() {
         return datedebut;
     }
 
-    public void setDatedebut(Date datedebut) {
+    public void setDatedebut(String datedebut) {
         this.datedebut = datedebut;
     }
 
-    public Date getDatefin() {
+    public String getDatefin() {
         return datefin;
     }
 
-    public void setDatefin(Date datefin) {
+    public void setDatefin(String datefin) {
         this.datefin = datefin;
     }
 
@@ -102,7 +102,7 @@ public Evenements( String nom, int prix, String lieu, Date datedebut, Date datef
 
     @Override
     public String toString() {
-        return "Evenements{" + "id=" + id + ", nom=" + nom + ", prix=" + prix + ", lieu=" + lieu + ", datedebut=" + datedebut + ", datefin=" + datefin + ", description=" + description + '}';
+        return "Evenements{" + "idevent=" + idevent + ", nom=" + nom + ", prix=" + prix + ", lieu=" + lieu + ", datedebut=" + datedebut + ", datefin=" + datefin + ", description=" + description + '}';
     }
 
    
@@ -119,7 +119,7 @@ public Evenements( String nom, int prix, String lieu, Date datedebut, Date datef
             return false;
         }
         final Evenements other = (Evenements) obj;
-        if (this.id != other.id) {
+        if (this.idevent != other.idevent) {
             return false;
         }
         if (this.prix != other.prix) {

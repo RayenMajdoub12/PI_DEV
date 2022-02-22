@@ -12,47 +12,62 @@ import java.util.Objects;
  * @author Mohamed
  */
 public class Participations {
-  private int id ;
-    private String event;
+    private int idpart ;
+    private int idevent;
+    private int iduser;
     private int prix;
-    private String categorie;
-    private int numpts;
+    private int numpart;
+    private String categoriepart;
+    private String description;
+
+       //const
+    public Participations(int idpart, int idevent, int iduser, int prix, int numpart, String categoriepart, String description) {
+        this.idpart = idpart;
+        this.idevent = idevent;
+        this.iduser = iduser;
+        this.prix = prix;
+        this.numpart = numpart;
+        this.categoriepart = categoriepart;
+        this.description = description;
+    }
 
     public Participations() {
     }
-
-    public Participations(int id, String event, int prix, String categorie, int numpts) {
-        this.id = id;
-        this.event = event;
-        this.prix = prix;
-        this.categorie = categorie;
-        this.numpts = numpts;
-    }
-    
-     public Participations( String event, int prix, String categorie, int numpts) {
+   
+    //Auto inc
+    public Participations( int idevent, int iduser, int prix, int numpart, String categoriepart, String description) {
         
-        this.event = event;
+        this.idevent = idevent;
+        this.iduser = iduser;
         this.prix = prix;
-        this.categorie = categorie;
-        this.numpts = numpts;
+        this.numpart = numpart;
+        this.categoriepart = categoriepart;
+        this.description = description;
     }
-     
-     //GETTER AND SETTER 
+    // getter and setter 
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public int getIdpart() {
+        return idpart;
     }
 
-    public String getEvent() {
-        return event;
+    public void setIdpart(int idpart) {
+        this.idpart = idpart;
     }
 
-    public void setEvent(String event) {
-        this.event = event;
+    public int getIdevent() {
+        return idevent;
+    }
+
+    public void setIdevent(int idevent) {
+        this.idevent = idevent;
+    }
+
+    public int getIduser() {
+        return iduser;
+    }
+
+    public void setIduser(int iduser) {
+        this.iduser = iduser;
     }
 
     public int getPrix() {
@@ -63,28 +78,36 @@ public class Participations {
         this.prix = prix;
     }
 
-    public String getCategorie() {
-        return categorie;
+    public int getNumpart() {
+        return numpart;
     }
 
-    public void setCategorie(String categorie) {
-        this.categorie = categorie;
+    public void setNumpart(int numpart) {
+        this.numpart = numpart;
     }
 
-    public int getNumpts() {
-        return numpts;
+    public String getCategoriepart() {
+        return categoriepart;
     }
 
-    public void setNumpts(int numpts) {
-        this.numpts = numpts;
+    public void setCategoriepart(String categoriepart) {
+        this.categoriepart = categoriepart;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
     public String toString() {
-        return "Participations{" + "id=" + id + ", event=" + event + ", prix=" + prix + ", categorie=" + categorie + ", numpts=" + numpts + '}';
+        return "Participations{" + "idpart=" + idpart + ", idevent=" + idevent + ", iduser=" + iduser + ", prix=" + prix + ", numpart=" + numpart + ", categoriepart=" + categoriepart + ", description=" + description + '}';
     }
 
-   
+    
 
     @Override
     public boolean equals(Object obj) {
@@ -98,39 +121,29 @@ public class Participations {
             return false;
         }
         final Participations other = (Participations) obj;
-        if (this.id != other.id) {
+        if (this.idpart != other.idpart) {
+            return false;
+        }
+        if (this.idevent != other.idevent) {
+            return false;
+        }
+        if (this.iduser != other.iduser) {
             return false;
         }
         if (this.prix != other.prix) {
             return false;
         }
-        if (this.numpts != other.numpts) {
+        if (this.numpart != other.numpart) {
             return false;
         }
-        if (!Objects.equals(this.event, other.event)) {
+        if (!Objects.equals(this.categoriepart, other.categoriepart)) {
             return false;
         }
-        if (!Objects.equals(this.categorie, other.categorie)) {
+        if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         return true;
     }
-     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
