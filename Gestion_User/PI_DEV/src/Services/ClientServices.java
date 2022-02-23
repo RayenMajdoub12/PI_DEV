@@ -21,6 +21,7 @@ public class ClientServices implements I_SERVICE<Client>{
     private PreparedStatement pst;
     private ResultSet rs;
 
+    
     public ClientServices() {
         conn = Datasource.getInstance().getCnx();
     }

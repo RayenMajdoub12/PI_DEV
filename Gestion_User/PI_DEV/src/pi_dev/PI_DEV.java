@@ -34,7 +34,7 @@ public class PI_DEV {
         GeneralServices GS =new GeneralServices();
         try {
             ;
-            GS.sendMail("raybahta12@gmail.com",GS. Token_Mdp_Oublie ("raybahta12@gmail.com"));
+            GS.sendMail("iheb.jeridi@esprit.tn",GS. Token_Mdp_Oublie ("iheb.jeridi@esprit.tn"));
         } catch (Exception ex) {
             Logger.getLogger(PI_DEV.class.getName()).log(Level.SEVERE, null, ex);
         }
