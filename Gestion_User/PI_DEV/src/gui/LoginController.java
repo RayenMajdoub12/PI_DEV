@@ -36,8 +36,9 @@ public class LoginController implements Initializable {
 
     /**
      * Initializes the controller class.
-     */    @FXML
-   
+     */  
+    @FXML
+   private VBox vbox ;
     private Parent fxml;
      @FXML
     private TextField username;
@@ -55,7 +56,9 @@ public class LoginController implements Initializable {
         Image img  = new Image("/images/success-24.png");
         Image img_error  = new Image("/images/error-icon-4.png");
         GeneralServices GS = new GeneralServices();
-       if(GS.Login(username.getText(),password.getText())!=(-1))
+        System.out.println(username.getText().toString());
+        System.out.println(password.getText().toString());
+       if(GS.Login(username.getText().toString(),password.getText().toString())!=(-1))
        {  
            Notifications notificationbuilder = Notifications.create().title("succès de l'authentification").
                    graphic(new ImageView(img)).
@@ -99,6 +102,6 @@ public class LoginController implements Initializable {
            notificationbuilder.show();
        }
         
-    }
+    }}
     
-}
+

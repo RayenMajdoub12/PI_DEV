@@ -32,7 +32,7 @@ import javax.mail.internet.MimeMessage;
  * @author Rayen
  */
 public class GeneralServices {
-      private  Connection conn;
+    private  Connection conn;
     private Statement ste;
     private PreparedStatement pst;
     private ResultSet rs;
@@ -44,18 +44,22 @@ public class GeneralServices {
     
     // AUTHENTIFICATION
     public int Login(String pseudo,String mdp)
-    {
-        String req="select id_user from user WHERE pseudo='"+pseudo+"'AND mdp='"+mdp+"'";  
+    { int id_user ;
+        String req="SELECT id_user FROM user WHERE pseudo ='"+pseudo+"'AND mdp ='"+mdp+"'";  
           try {
               ste=conn.createStatement();
-              rs= ste.executeQuery(req);
-            return  rs.getInt("id_user"); // en utilisant l'id je vais extraire les informations du user et choisir l'interface qui le correspond
+              rs= ste.executeQuery(req); 
+              rs.next();
+              id_user= rs.getInt(1);
+             
+              System.out.println(id_user);
+            return id_user ; 
           } catch (SQLException ex) {
               Logger.getLogger(GeneralServices.class.getName()).log(Level.SEVERE, null, ex);
               System.out.println("l'utilisateur n'existe pas "); 
-             return -1 ;
-             
+            return -1 ;
           }
+           
      }
 
   
