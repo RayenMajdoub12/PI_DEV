@@ -24,7 +24,7 @@ public class PI_DEV {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Client C = new Client("sdq", "dsqd", "qjskd", "ajqsn", "@sqdqs",85,54,"client");
+        Client C = new Client("sdq", "dsqd", "@sqdqs", "rayen", "rayen",85,54,"client");
         Coach C1 = new Coach("sdq", "dsqd", "qjskd", "ajqsn", "@sqdqs",85,54,"coach","yoga",2500);
         ClientServices s =new ClientServices();
         CoachServices s1=new CoachServices();
