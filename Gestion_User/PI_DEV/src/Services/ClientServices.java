@@ -96,5 +96,21 @@ public class ClientServices implements I_SERVICE<Client>{
         }
         return C;
     }
+    
+    public boolean test_used_pseudo_or_email(Client c1)
+            {
+             int a;
+         String req="select id_user from user WHERE pseudo='"+c1.getPseudo()+"' OR email = '"+c1.getEmail()+"'"; 
+        try {
+            ste=conn.createStatement();
+             rs= ste.executeQuery(req);
+             rs.next();
+             a = rs.getInt("id_user");
+        return false;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return true;
+            }
 
 }
