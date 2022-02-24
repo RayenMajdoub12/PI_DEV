@@ -21,7 +21,7 @@
       </Label>
       <HBox prefHeight="34.0" prefWidth="450.0">
          <children>
-            <TextField prefHeight="26.0" prefWidth="481.0" promptText="Code" styleClass="tf_box" HBox.hgrow="SOMETIMES" />
+            <TextField fx:id="token" prefHeight="26.0" prefWidth="481.0" promptText="Code" styleClass="tf_box" HBox.hgrow="SOMETIMES" />
             <FontAwesomeIconView caretBias="false" fill="WHITE" glyphName="LOCK" size="20" />
          </children>
          <VBox.margin>
@@ -35,7 +35,7 @@
       </HBox>
       <HBox prefHeight="71.0" prefWidth="480.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="450.0" styleClass="blue-btn" text="Verify" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#initData" prefHeight="39.0" prefWidth="450.0" styleClass="blue-btn" text="Verify" textFill="WHITE">
                <HBox.margin>
                   <Insets left="15.0" right="15.0" top="20.0" />
                </HBox.margin>

@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author Rayen
  */
-public class Client  {
+public class User  {
     private int id_user;
     private String nom ;
     private String prenom;
@@ -21,12 +21,13 @@ public class Client  {
     private int tel ;
     private int age ;
     private String role ;
+    private String specialite ;
+     private int salaire ;
 
-    public Client() {
+    public User() {
     }
 
-    //constructeur param
-    public Client(int id_user, String nom, String prenom, String email, String pseudo, String mdp, int tel, int age, String role) {
+    public User(int id_user, String nom, String prenom, String email, String pseudo, String mdp, int tel, int age, String role, String specialite, int salaire) {
         this.id_user = id_user;
         this.nom = nom;
         this.prenom = prenom;
@@ -36,10 +37,12 @@ public class Client  {
         this.tel = tel;
         this.age = age;
         this.role = role;
+        this.specialite = specialite;
+        this.salaire = salaire;
     }
-    //constructeur param sans id_user
-      public Client( String nom, String prenom, String email, String pseudo, String mdp, int tel, int age, String role) {
-     
+   
+    public User(String nom, String prenom, String email, String pseudo, String mdp, int tel, int age, String role, String specialite, int salaire) {
+        
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
@@ -48,6 +51,8 @@ public class Client  {
         this.tel = tel;
         this.age = age;
         this.role = role;
+        this.specialite = specialite;
+        this.salaire = salaire;
     }
 
     public int getId_user() {
@@ -121,6 +126,24 @@ public class Client  {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public String getSpecialite() {
+        return specialite;
+    }
+
+    public void setSpecialite(String specialite) {
+        this.specialite = specialite;
+    }
+
+    public int getSalaire() {
+        return salaire;
+    }
+
+    public void setSalaire(int salaire) {
+        this.salaire = salaire;
+    }
+
+ 
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,7 +155,7 @@ public class Client  {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Client other = (Client) obj;
+        final User other = (User) obj;
         if (this.id_user != other.id_user) {
             return false;
         }
@@ -140,6 +163,9 @@ public class Client  {
             return false;
         }
         if (this.age != other.age) {
+            return false;
+        }
+        if (this.salaire != other.salaire) {
             return false;
         }
         if (!Objects.equals(this.nom, other.nom)) {
@@ -160,15 +186,17 @@ public class Client  {
         if (!Objects.equals(this.role, other.role)) {
             return false;
         }
+        if (!Objects.equals(this.specialite, other.specialite)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Client{" + "id_user=" + id_user + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", pseudo=" + pseudo + ", mdp=" + mdp + ", tel=" + tel + ", age=" + age + ", role=" + role + '}';
+        return "User{" + "id_user=" + id_user + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", pseudo=" + pseudo + ", mdp=" + mdp + ", tel=" + tel + ", age=" + age + ", role=" + role + ", specialite=" + specialite + ", salaire=" + salaire + '}';
     }
 
-   
     
     }
 

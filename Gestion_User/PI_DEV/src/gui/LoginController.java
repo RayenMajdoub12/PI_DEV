@@ -16,8 +16,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
-import Services.GeneralServices ;
-import Model.Client;
+import Services.GeneralServices;
+import Model.User;
+import Services.ClientServices;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
@@ -25,7 +26,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import org.controlsfx.control.Notifications;
-
 
 /**
  * FXML Controller class
@@ -36,72 +36,94 @@ public class LoginController implements Initializable {
 
     /**
      * Initializes the controller class.
-     */  
+     */
     @FXML
-   private VBox vbox ;
+    private VBox vbox;
     private Parent fxml;
-     @FXML
+    @FXML
     private TextField username;
-     @FXML
+    @FXML
     private TextField password;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
     @FXML
-    public void Connect(ActionEvent event)
-    {
-        //notification 
-        Image img  = new Image("/images/success-24.png");
-        Image img_error  = new Image("/images/error-icon-4.png");
+    public void Connect(ActionEvent event) {
+        User u = new User();
+        ClientServices CS = new ClientServices();
         GeneralServices GS = new GeneralServices();
-        System.out.println(username.getText().toString());
-        System.out.println(password.getText().toString());
-       if(GS.Login(username.getText().toString(),password.getText().toString())!=(-1))
-       {  
-           Notifications notificationbuilder = Notifications.create().title("succès de l'authentification").
-                   graphic(new ImageView(img)).
-                   hideAfter(Duration.seconds(5)).
-                   position(Pos.BOTTOM_RIGHT).
-                   onAction(new EventHandler<ActionEvent>(){
-                       
-                       @Override
-                       public void handle(ActionEvent event)
-                       {
-                           System.out.println("clicked on notification");
-                       }
-                   }) ;
-           notificationbuilder.darkStyle();
-           notificationbuilder.show();
-           
-               //main interface de l'application
+        int id_user;
+
+        Image img = new Image("/images/success-24.png");
+        Image img_error = new Image("/images/error-icon-4.png");
+
+        id_user = GS.Login(username.getText().toString(), password.getText().toString());
+
+        if (id_user != (-1)) {
+            Notifications notificationbuilder = Notifications.create().title("succès de l'authentification").
+                    graphic(new ImageView(img)).
+                    hideAfter(Duration.seconds(5)).
+                    position(Pos.BOTTOM_RIGHT).
+                    onAction(new EventHandler<ActionEvent>() {
+
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("clicked on notification");
+                        }
+                    });
+            notificationbuilder.darkStyle();
+            notificationbuilder.show();
+
+            u = CS.readById(id_user);
+            if (u.getRole() == "client") {
+                // ouvre l' interface de client
 //         try{
-//        fxml = FXMLLoader. load (getClass ().getResource ("Main_app_interface.fxml"));
+//        fxml = FXMLLoader. load (getClass ().getResource ("Main_app_interface_client.fxml"));
 //        vbox_main_app.getChildren ().removeAll ();
 //        vbox_main_app.getChildren (). setAll (fxml);
 //    }catch (IOException ex) {
 //    
 //}
-             }
-       else
-       {
-              Notifications notificationbuilder = Notifications.create().title("Échec de l'authentification").
-                   graphic(new ImageView(img_error)).
-                   hideAfter(Duration.seconds(5)).
-                   position(Pos.BOTTOM_RIGHT).
-                   onAction(new EventHandler<ActionEvent>(){
-                       
-                       @Override
-                       public void handle(ActionEvent event)
-                       {
-                           System.out.println("clicked on notification");
-                       }
-                   }) ;
-           notificationbuilder.darkStyle();
-           notificationbuilder.show();
-       }
-        
-    }}
-    
+            } else {
+                //ouvre l'interface du coach
+                //         try{
+//        fxml = FXMLLoader. load (getClass ().getResource ("Main_app_interface_coach.fxml"));
+//        vbox_main_app.getChildren ().removeAll ();
+//        vbox_main_app.getChildren (). setAll (fxml);
+//    }catch (IOException ex) {
+//    
+//}
+            }
+        } else {
+            Notifications notificationbuilder = Notifications.create().title("Échec de l'authentification").
+                    graphic(new ImageView(img_error)).
+                    hideAfter(Duration.seconds(5)).
+                    position(Pos.BOTTOM_RIGHT).
+                    onAction(new EventHandler<ActionEvent>() {
 
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("clicked on notification");
+                        }
+                    });
+            notificationbuilder.darkStyle();
+            notificationbuilder.show();
+        }
+
+    }
+
+    public void mdp_oublie_button(ActionEvent event){
+          try {
+                fxml = FXMLLoader.load(getClass().getResource("mdp_oublie.fxml"));
+                vbox.getChildren().removeAll();
+                vbox.getChildren().setAll(fxml);
+            } catch (IOException ex) {
+
+            }
+
+    }
+
+}

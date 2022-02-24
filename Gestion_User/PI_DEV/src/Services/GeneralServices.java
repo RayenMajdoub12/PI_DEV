@@ -8,8 +8,8 @@
 
 ///test test 
 package Services;
-import Model.Coach;
-import Model.Client;
+import Model.User;
+import Model.User;
 import Services.ClientServices ;
 import Services.CoachServices ;
 import java.sql.*;
@@ -45,7 +45,7 @@ public class GeneralServices {
     // AUTHENTIFICATION
     public int Login(String pseudo,String mdp)
     { int id_user ;
-        String req="SELECT id_user FROM user WHERE pseudo ='"+pseudo+"'AND mdp ='"+mdp+"'";  
+        String req="SELECT * FROM user WHERE pseudo ='"+pseudo+"'AND mdp ='"+mdp+"'";  
           try {
               ste=conn.createStatement();
               rs= ste.executeQuery(req); 
@@ -95,14 +95,14 @@ public class GeneralServices {
    public String Token_Mdp_Oublie (String pseudo_ou_mail) // générer le token  
    {   Random rand = new Random();
        int token = rand.nextInt(99999);
-//     String req = "UPDATE user SET (token_mdp ='" +token+ "') WHERE  pseudo='"+pseudo_ou_mail+"'OR email='"+pseudo_ou_mail+"'";
-//        try {
-//            ste = conn.createStatement();
-//            ste.executeUpdate(req);
-//            System.out.println("token envoyé par mail");
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CoachServices.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+     String req = "UPDATE user SET tokenmdp ='"+token+"'WHERE  pseudo = '"+pseudo_ou_mail+"'OR email ='"+pseudo_ou_mail+"'";
+        try {
+            ste = conn.createStatement();
+            ste.executeUpdate(req);
+            System.out.println("token envoyé par mail");
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
         
         return " <!doctype html>\n" +
 "<html lang=\"en-US\">\n" +
@@ -183,11 +183,12 @@ public class GeneralServices {
    
    public  boolean VerifyToken(String pseudo_ou_mail,int token_user) // chercher le token
     {     int token ;
-          String req="select token_mdp from user WHERE pseudo='"+pseudo_ou_mail+"'OR email='"+pseudo_ou_mail+"'";   
+          String req="select tokenmdp from user WHERE pseudo='"+pseudo_ou_mail+"'OR email='"+pseudo_ou_mail+"'";   
           try {
               ste=conn.createStatement();
                 rs= ste.executeQuery(req);
-            token= rs.getInt("token_mdp");
+                rs.next();
+            token= rs.getInt("tokenmdp");
             if(token==token_user)
                 return true ;
           } catch (SQLException ex) {
