@@ -46,6 +46,8 @@ public class SignupController implements Initializable {
     private TextField phone;
     @FXML
     private TextField age;
+  
+  
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

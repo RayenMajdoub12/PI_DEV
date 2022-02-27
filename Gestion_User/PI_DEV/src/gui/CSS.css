@@ -10,9 +10,14 @@ and open the template in the editor.
 
 .parent{
     -fx-background-color: transparent;
+
+
 }
 .pane{
-   -fx-background-color: #2196f3; 
+     -fx-background-image: url("/images/pibackground.png")no-repeat;
+
+   -fx-background-size: 100%;
+ /*  -fx-background-color: #2196f3; */
 }
 .trans-btn-white-border{
     -fx-background-color: transparent;
@@ -23,26 +28,29 @@ and open the template in the editor.
     -fx-text-fill: whitesmoke;
 }
 .white-pane{
-    -fx-background-color: #ffffff;
+    -fx-background-color: transparent;
 }
 .blue-panel{
-    -fx-background-color: #151928;
+   
+    -fx-background-color: #262626;
+   
 }
 .tf_box{
     -fx-background-color: transparent;
     -fx-border-color: #DEDEE4;
+    -fx-text-fill: white;
     -fx-border-width: 0px 0px 1px 0px;
 }
 .tf{
     -fx-background-color: transparent;    
 }
 .blue-btn{
-    -fx-background-color: #2196f3;
+    -fx-background-color: #ffe700;
     -fx-background-radius: 5px;
-    -fx-text-fill: #fffff;
+    -fx-text-fill: #262626;
 }
 .transparent-btn{
     -fx-background-color: transparent;
     -fx-background-radius: 5px;
-    -fx-text-fill: #fffff;
+    -fx-text-fill: #ffe700;
 }

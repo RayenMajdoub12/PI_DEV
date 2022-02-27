@@ -12,7 +12,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" styleClass="blue-panel" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SignupController">
    <children>
-      <Label contentDisplay="TEXT_ONLY" prefHeight="40.0" prefWidth="88.0" styleClass="tf" text="Sign Up" textFill="#2196f3">
+      <Label contentDisplay="TEXT_ONLY" prefHeight="40.0" prefWidth="88.0" styleClass="tf" text="Sign Up" textFill="#ffe700">
          <VBox.margin>
             <Insets bottom="10.0" left="200.0" top="12.0" />
          </VBox.margin>

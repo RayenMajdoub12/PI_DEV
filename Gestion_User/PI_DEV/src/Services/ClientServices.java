@@ -113,5 +113,16 @@ public class ClientServices implements I_SERVICE<User>{
         }
         return true;
             }
-
+    public void update_mdp(String new_mdp,String pseudo_ou_mail)
+    {
+         String req = "UPDATE user SET mdp ='"+new_mdp+"'WHERE   email ='"+pseudo_ou_mail+"'";
+        try {
+            ste = conn.createStatement();
+            ste.executeUpdate(req);
+            System.out.println("succes mdp ");
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+ 
 }

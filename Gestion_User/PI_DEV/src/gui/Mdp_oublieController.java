@@ -34,24 +34,29 @@ public class Mdp_oublieController implements Initializable {
     @FXML
     private Parent fxml;
     
-    public static String mail ;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
 @FXML
-    public String send_code() {
+    public void send_code() {
         GeneralServices GS = new GeneralServices();
+       String mail=email_user.getText();
         try {
             GS.sendMail(email_user.getText(), GS.Token_Mdp_Oublie(email_user.getText().toString()));
             fxml = FXMLLoader.load(getClass().getResource("verif_token.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+            Verif_tokenController verif_tok_con = loader.getController();
+            verif_tok_con.mail_passe=mail;
             vbox.getChildren().removeAll();
             vbox.getChildren().setAll(fxml);
         } catch (Exception ex) {
             Logger.getLogger(Mdp_oublieController.class.getName()).log(Level.SEVERE, null, ex);
         }
-   return mail=email_user.getText();
+
+  
     }
   
     

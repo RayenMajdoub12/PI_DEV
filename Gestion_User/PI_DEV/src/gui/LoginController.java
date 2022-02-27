@@ -19,11 +19,16 @@ import javafx.util.Duration;
 import Services.GeneralServices;
 import Model.User;
 import Services.ClientServices;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import org.controlsfx.control.Notifications;
 
@@ -63,6 +68,7 @@ public class LoginController implements Initializable {
         id_user = GS.Login(username.getText().toString(), password.getText().toString());
 
         if (id_user != (-1)) {
+            //notification desktop
             Notifications notificationbuilder = Notifications.create().title("succès de l'authentification").
                     graphic(new ImageView(img)).
                     hideAfter(Duration.seconds(5)).
@@ -76,21 +82,26 @@ public class LoginController implements Initializable {
                     });
             notificationbuilder.darkStyle();
             notificationbuilder.show();
-
+//AB3ATH EL USER LEL INTERFACE JEYA
             u = CS.readById(id_user);
-            if (u.getRole() == "client") {
-                // ouvre l' interface de client
-//         try{
-//        fxml = FXMLLoader. load (getClass ().getResource ("Main_app_interface_client.fxml"));
-//        vbox_main_app.getChildren ().removeAll ();
-//        vbox_main_app.getChildren (). setAll (fxml);
-//    }catch (IOException ex) {
-//    
-//}
+            System.out.println(u.getRole());
+            if (u.getRole().equalsIgnoreCase("client")) {
+                try {
+                    Stage stage = new Stage();
+                   FXMLLoader fx = new FXMLLoader();
+                   Pane  root = fx.load(getClass().getResource("Main_app_client.fxml").openStream());
+                   Main_app_clientController CC = fx.getController();
+                   CC.user_passed=u;   
+                   stage.setScene(new Scene(root));
+                   stage.showAndWait();
+                } catch (IOException ex) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
             } else {
                 //ouvre l'interface du coach
                 //         try{
-//        fxml = FXMLLoader. load (getClass ().getResource ("Main_app_interface_coach.fxml"));
+//        fxml = FXMLLoader. load (getClass ().getResource ("Main_app_coach.fxml"));
 //        vbox_main_app.getChildren ().removeAll ();
 //        vbox_main_app.getChildren (). setAll (fxml);
 //    }catch (IOException ex) {
@@ -98,6 +109,7 @@ public class LoginController implements Initializable {
 //}
             }
         } else {
+            //notif error
             Notifications notificationbuilder = Notifications.create().title("Échec de l'authentification").
                     graphic(new ImageView(img_error)).
                     hideAfter(Duration.seconds(5)).
@@ -115,14 +127,14 @@ public class LoginController implements Initializable {
 
     }
 
-    public void mdp_oublie_button(ActionEvent event){
-          try {
-                fxml = FXMLLoader.load(getClass().getResource("mdp_oublie.fxml"));
-                vbox.getChildren().removeAll();
-                vbox.getChildren().setAll(fxml);
-            } catch (IOException ex) {
+    public void mdp_oublie_button(ActionEvent event) {
+        try {
+            fxml = FXMLLoader.load(getClass().getResource("mdp_oublie.fxml"));
+            vbox.getChildren().removeAll();
+            vbox.getChildren().setAll(fxml);
+        } catch (IOException ex) {
 
-            }
+        }
 
     }
 

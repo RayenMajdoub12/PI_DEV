@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" styleClass="blue-panel" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Verif_tokenController">
+<VBox fx:id="vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" styleClass="blue-panel" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Change_mdpController">
    <children>
-      <Label contentDisplay="TEXT_ONLY" prefHeight="40.0" prefWidth="417.0" styleClass="tf" text="Enter the verification code" textFill="#ffe700">
+      <Label contentDisplay="TEXT_ONLY" prefHeight="40.0" prefWidth="357.0" styleClass="tf" text="Nouveau mot de passe" textFill="#ffe700">
          <VBox.margin>
             <Insets bottom="50.0" left="20.0" top="100.0" />
          </VBox.margin>
@@ -21,7 +21,7 @@
       </Label>
       <HBox prefHeight="34.0" prefWidth="450.0">
          <children>
-            <TextField fx:id="token" prefHeight="26.0" prefWidth="481.0" promptText="Code" styleClass="tf_box" HBox.hgrow="SOMETIMES" />
+            <TextField fx:id="nv_mdp1" prefHeight="26.0" prefWidth="481.0" promptText="nouveau mot de passe" styleClass="tf_box" HBox.hgrow="SOMETIMES" />
             <FontAwesomeIconView caretBias="false" fill="WHITE" glyphName="LOCK" size="20" />
          </children>
          <VBox.margin>
@@ -29,22 +29,34 @@
          </VBox.margin>
       </HBox>
       <HBox prefHeight="32.0" prefWidth="450.0">
+         <children>
+            <TextField fx:id="nv_mdp2" prefHeight="26.0" prefWidth="481.0" promptText="confirmer le nouveau mot de passe" styleClass="tf_box" />
+            <FontAwesomeIconView caretBias="false" fill="WHITE" glyphName="LOCK" size="20" />
+         </children>
          <VBox.margin>
             <Insets left="15.0" right="15.0" top="20.0" />
          </VBox.margin>
       </HBox>
       <HBox prefHeight="71.0" prefWidth="480.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#verif_tok" prefHeight="39.0" prefWidth="450.0" styleClass="blue-btn" text="Verify" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#new_mdp" prefHeight="39.0" prefWidth="450.0" styleClass="blue-btn" text="Confirm" textFill="WHITE">
                <HBox.margin>
                   <Insets left="15.0" right="15.0" top="20.0" />
                </HBox.margin>
                <font>
                   <Font size="17.0" />
                </font>
+               <opaqueInsets>
+                  <Insets top="10.0" />
+               </opaqueInsets>
             </Button>
          </children>
       </HBox>
       <HBox prefHeight="6.0" prefWidth="480.0" />
+      <TextField fx:id="notif" prefHeight="25.0" prefWidth="436.0" styleClass="tf">
+         <opaqueInsets>
+            <Insets left="15.0" right="15.0" />
+         </opaqueInsets>
+      </TextField>
    </children>
 </VBox>
