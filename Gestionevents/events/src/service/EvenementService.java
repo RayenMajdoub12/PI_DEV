@@ -26,7 +26,7 @@ public class EvenementService implements IService<Evenements>{
         conn = Datasource.getInstance().getCnx();
     }   
     @Override
-    public void insert(Evenements e) {
+    public void insert (Evenements e) {
    //TODATE BECH NSALHOUHAAAAAAAA  W9AYET EKHER
 
          String request = "INSERT INTO evenement (nom,prix,lieu,datedebut,datefin,description) "
@@ -49,10 +49,10 @@ public class EvenementService implements IService<Evenements>{
 
     @Override
     public void delete(Evenements e) {
-        String req="DELETE FROM evenement WHERE idevent= '"+e.getidevent()+"'";
+        String requste ="DELETE FROM evenement WHERE idevent= '"+e.getidevent()+"'";
         try {
             ste = conn.createStatement();
-             ste.executeUpdate(req);
+             ste.executeUpdate(requste);
         } catch (SQLException ex) {
             Logger.getLogger(EvenementService.class.getName()).log(Level.SEVERE, null, ex);
         }

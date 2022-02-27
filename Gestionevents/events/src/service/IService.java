@@ -13,7 +13,7 @@ import java.util.List;
  * @param <T>
  */
 public interface IService<T> {
-   void insert(T t);
+   void insert (T t);
    void delete(T t);
    
    void update(T t);

@@ -34,7 +34,7 @@ public class Events {
    // System.out.println("Delete");
     //System.out.println(es.delete(e));
         
-        System.out.println("***********************participations************************");
+        // System.out.println("***********************participations************************");
          // TODO code application logic here
        Participations p=new Participations (2,12,6,300,100,"junior","les plus fort et musclé"); 
        ParticipationService ps=new ParticipationService ();

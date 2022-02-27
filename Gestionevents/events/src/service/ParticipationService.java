@@ -31,7 +31,7 @@ private  Connection conn;
     }   
     @Override
     public void insert(Participations p) {
-        String req = "INSERT INTO particiaption (idevent,iduser,prix,numpart,categoriepart,description)"
+        String request = "INSERT INTO participation (idevent,iduser,prix,numpart,categoriepart,description)"
                 + " VALUES ('" + p.getIdevent() + "','" + p.getIduser() + "',"
                 + "'" + p.getPrix()+ "',"
                 + "'" + p.getNumpart()+ "',"
