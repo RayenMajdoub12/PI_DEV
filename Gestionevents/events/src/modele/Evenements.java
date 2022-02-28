@@ -17,12 +17,12 @@ public class Evenements {
     private String nom;
     private int prix;
     private String lieu;
-    private String datedebut;
-    private String datefin;
+    private Date datedebut;
+    private Date datefin;
     private String description;
     
 
-    public Evenements(int idevent, String nom, int prix, String lieu, String datedebut, String datefin, String description) {
+    public Evenements(int idevent, String nom, int prix, String lieu, Date datedebut, Date datefin, String description) {
         this.idevent = idevent;
         this.nom = nom;
         this.prix = prix;
@@ -35,7 +35,7 @@ public class Evenements {
 
     public Evenements() {
     }
-public Evenements( String nom, int prix, String lieu, String datedebut, String datefin, String description) {
+public Evenements( String nom, int prix, String lieu, Date datedebut, Date datefin, String description) {
        
         this.nom = nom;
         this.prix = prix;
@@ -76,19 +76,19 @@ public Evenements( String nom, int prix, String lieu, String datedebut, String d
         this.lieu = lieu;
     }
 
-    public String getDatedebut() {
+    public Date getDatedebut() {
         return datedebut;
     }
 
-    public void setDatedebut(String datedebut) {
+    public void setDatedebut(Date datedebut) {
         this.datedebut = datedebut;
     }
 
-    public String getDatefin() {
+    public Date getDatefin() {
         return datefin;
     }
 
-    public void setDatefin(String datefin) {
+    public void setDatefin(Date datefin) {
         this.datefin = datefin;
     }
 
@@ -104,6 +104,7 @@ public Evenements( String nom, int prix, String lieu, String datedebut, String d
     public String toString() {
         return "Evenements{" + "idevent=" + idevent + ", nom=" + nom + ", prix=" + prix + ", lieu=" + lieu + ", datedebut=" + datedebut + ", datefin=" + datefin + ", description=" + description + '}';
     }
+
 
    
 

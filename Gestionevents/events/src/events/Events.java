@@ -20,12 +20,21 @@ public class Events {
      */
     
     public static void main(String[] args) {
-       // Date D=new Date (2022,22,1);
-         
+       Date D=new java.sql.Date(2022,22,1);
         // TODO code application logic here
-       Evenements e=new Evenements ("gasmi",1200,"gabes","cestezsfsdqf","salut les gars","oui"); 
+       Evenements e=new Evenements ("ali",1200,"tt",D,D,"aaa"); 
        EvenementService es=new EvenementService ();
-       es.insert(e);
+     Participations p = new Participations(98, 6, 30, 7, "addd", "addd");
+        ParticipationService d= new ParticipationService();
+        es.insert(e);
+     //   System.out.println(es.chercher("geus"));
+      //  System.out.println(es.tries("prix"));
+  // d.insert(p);
+      //  es.add();
+   //  es.insert(e);
+    //es.update(e, 97);
+   // es.delete(97);
+      //  System.out.println(  es.read());
         
         
         
@@ -36,10 +45,7 @@ public class Events {
         
         // System.out.println("***********************participations************************");
          // TODO code application logic here
-       Participations p=new Participations (2,12,6,300,100,"junior","les plus fort et musclé"); 
-       ParticipationService ps=new ParticipationService ();
-       ps.insert(p);
-        
+
         
         
         
