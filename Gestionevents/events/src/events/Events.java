@@ -20,20 +20,22 @@ public class Events {
      */
     
     public static void main(String[] args) {
-       Date D=new java.sql.Date(2022,22,1);
+       Date D=new java.sql.Date(2021,5,27);
+       Date D1=new java.sql.Date(2022,5,28);
+
         // TODO code application logic here
-       Evenements e=new Evenements ("ali",1200,"tt",D,D,"aaa"); 
+       Evenements e=new Evenements ("khali guesmi ",1200,"tt",D,D1,"winek bro comment cava ? "); 
        EvenementService es=new EvenementService ();
      Participations p = new Participations(98, 6, 30, 7, "addd", "addd");
         ParticipationService d= new ParticipationService();
-        es.insert(e);
+       //es.insert(e);
      //   System.out.println(es.chercher("geus"));
       //  System.out.println(es.tries("prix"));
   // d.insert(p);
       //  es.add();
    //  es.insert(e);
     //es.update(e, 97);
-   // es.delete(97);
+   es.delete(112);
       //  System.out.println(  es.read());
         
         
