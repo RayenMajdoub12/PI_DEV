@@ -5,6 +5,7 @@
  */
 package service;
 import cnxdb.Datasource;
+import com.edu.project.services.Mail;
 import java.awt.AWTException;
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -52,7 +53,11 @@ public class EvenementService implements IService<Evenements>{
             Logger.getLogger(EvenementService.class.getName()).log(Level.SEVERE, null, ex);
         }
            
-                       
+        try {                
+            Mail.sendMail("mohamed.gasmi@esprit.tn");
+        } catch (Exception ex) {
+            Logger.getLogger(EvenementService.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 
