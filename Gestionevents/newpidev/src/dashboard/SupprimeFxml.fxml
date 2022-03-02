@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="809.0" prefWidth="1245.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboard.SupprimeFxmlController">
+    <children>
+        <Label layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="292.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="EVENEMENTS" />
+      <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
+      <AnchorPane layoutX="21.0" layoutY="59.0" prefHeight="87.0" prefWidth="1179.0" style="-fx-background-color: #00C0EF; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: #009ABF; -fx-border-width: 0 0 0 4;">
+         <children>
+            <Label layoutX="39.0" layoutY="7.0" prefHeight="30.0" prefWidth="292.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: white;" text="Supprimer Evenement !" />
+            <Label layoutX="39.0" layoutY="44.0" prefHeight="30.0" prefWidth="1119.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: white;" text="Si vous-supprimez cette evenement  vous serez eloigné de la liste des participants !" />
+         </children>
+      </AnchorPane>
+      <VBox layoutX="58.0" layoutY="191.0" prefHeight="66.0" prefWidth="968.0" spacing="47.0">
+         <children>
+            <AnchorPane prefHeight="55.0" prefWidth="893.0" style="-fx-background-color: #F39C12; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: #C27C0E; -fx-border-width: 0 0 0 4;">
+               <children>
+                  <Label layoutX="421.0" layoutY="13.0" prefHeight="30.0" prefWidth="188.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: white;" text="ID Event :" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <VBox layoutX="31.0" layoutY="634.0" prefHeight="150.0" prefWidth="139.0" spacing="48.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Desktop/272761442_624600518783617_41310521917699181_n.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <Button layoutX="912.0" layoutY="730.0" mnemonicParsing="false" onAction="#supprimerevent" prefHeight="54.0" prefWidth="298.0" text="Supprimer Evenement" textFill="#e43b3b">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <TextField fx:id="IDEVENT" layoutX="449.0" layoutY="299.0" />
+      <ImageView fitHeight="150.0" fitWidth="163.0" layoutX="249.0" layoutY="634.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Desktop/258759161_620174619286031_7210911662089630315_n.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="167.0" layoutX="467.0" layoutY="634.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Desktop/259388171_729608798004288_5888659537821079980_n.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="can" layoutX="697.0" layoutY="742.0" mnemonicParsing="false" onAction="#cancan" text="cancel" />
+      <Button fx:id="can1" layoutX="707.0" layoutY="752.0" mnemonicParsing="false" onAction="#cancan" text="cancel" />
+    </children>
+    
+</AnchorPane>

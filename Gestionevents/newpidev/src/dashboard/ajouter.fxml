@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="853.0" prefWidth="1213.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboard.AjouterController">
+     <children>
+      <Label layoutX="19.0" layoutY="17.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="EVENEMENTS" />
+      <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
+      <VBox layoutX="26.0" layoutY="420.0" prefHeight="4.0" prefWidth="1177.0" spacing="50.0" />
+      <Pane layoutX="284.0" layoutY="636.0" prefHeight="128.0" prefWidth="288.0" style="-fx-background-color: #00A65A; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+         <children>
+            <Pane layoutX="18.0" layoutY="87.0" prefHeight="27.0" prefWidth="249.0" style="-fx-background-color: #008548;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" prefHeight="25.0" prefWidth="114.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #F0F0F0;" text="More Info" />
+               </children>
+            </Pane>
+            <Label layoutX="7.0" layoutY="14.0" prefHeight="42.0" prefWidth="270.0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: white;" text="Evenement de l'anneé" />
+         </children>
+      </Pane>
+      <Pane layoutX="591.0" layoutY="636.0" prefHeight="128.0" prefWidth="232.0" style="-fx-background-color: #DD4B39; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+         <children>
+            <Pane layoutY="101.0" prefHeight="27.0" prefWidth="298.0" style="-fx-background-color: #B13C2E;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" prefHeight="25.0" prefWidth="249.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #F0F0F0;" text="More Info : Augmentation" />
+               </children>
+            </Pane>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-16.0" layoutY="19.0" prefHeight="25.0" prefWidth="262.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="70 %  evenement de karawké" />
+            <ProgressBar layoutX="24.0" layoutY="62.0" minHeight="-Infinity" opacity="0.78" prefHeight="5.0" prefWidth="182.0" progress="0.77" styleClass="custom-progress-bar" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="67.0" prefHeight="27.0" prefWidth="155.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="70 % increase" />
+         </children>
+      </Pane>
+      <Pane layoutX="927.0" layoutY="636.0" prefHeight="128.0" prefWidth="198.0" style="-fx-background-color: #F39C12; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+         <children>
+            <Pane layoutY="101.0" prefHeight="27.0" prefWidth="249.0" style="-fx-background-color: #C37D0E;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" prefHeight="25.0" prefWidth="114.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #F0F0F0;" text="More Info" />
+               </children>
+            </Pane>
+            <VBox layoutY="12.0" prefHeight="66.0" prefWidth="155.0">
+               <children>
+                  <Label prefHeight="43.0" prefWidth="64.0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: white;" text="50" />
+                  <Label prefHeight="25.0" prefWidth="145.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="New events" />
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutX="49.0" layoutY="737.0" prefHeight="27.0" prefWidth="224.0" style="-fx-background-color: #009ABF;">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="3.0" prefHeight="25.0" prefWidth="92.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #F0F0F0;" text="More Info" />
+         </children>
+      </Pane>
+      <Label layoutX="76.0" layoutY="700.0" prefHeight="25.0" prefWidth="145.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="New Participants .." />
+      <VBox layoutX="49.0" layoutY="636.0" prefHeight="94.0" prefWidth="170.0">
+         <children>
+            <Label prefHeight="43.0" prefWidth="64.0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: white;" text="232" />
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </VBox>
+      <Label layoutX="30.0" layoutY="140.0" text="Nom Evenement :">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="196.0" text="Prix Evenement :">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="265.0" text="Lieu Evenement :">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="324.0" text="Date debut Evenement :">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="381.0" text="Date fin Evenement :">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="441.0" text="Description Evenement :">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Pane layoutX="28.0" layoutY="570.0" prefHeight="42.0" prefWidth="1161.0" style="-fx-background-color: #00C0EF; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+         <cursor>
+            <Cursor fx:constant="S_RESIZE" />
+         </cursor>
+      </Pane>
+      <TextField fx:id="tfnom" layoutX="515.0" layoutY="138.0" prefHeight="45.0" prefWidth="384.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfprix" layoutX="515.0" layoutY="201.0" prefHeight="45.0" prefWidth="384.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tflieu" layoutX="515.0" layoutY="265.0" prefHeight="45.0" prefWidth="384.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfdescription" layoutX="521.0" layoutY="446.0" prefHeight="45.0" prefWidth="384.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <Button layoutX="1005.0" layoutY="519.0" mnemonicParsing="false" onAction="#ajouterevent" text="Ajouter Evenement " />
+      <ImageView fitHeight="339.0" fitWidth="288.0" layoutX="939.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Desktop/272789755_327141889338649_8460460855219739959_n.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="can" layoutX="396.0" layoutY="525.0" mnemonicParsing="false" onAction="#canceladdev" prefHeight="25.0" prefWidth="163.0" text="cancel" />
+      <DatePicker fx:id="datepick1" layoutX="550.0" layoutY="329.0" />
+      <DatePicker fx:id="datepick2" layoutX="550.0" layoutY="396.0" />
+      
+   </children>
+</AnchorPane>
