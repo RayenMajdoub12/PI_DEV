@@ -28,7 +28,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import org.controlsfx.control.Notifications;
 
@@ -82,33 +84,43 @@ public class LoginController implements Initializable {
                     });
             notificationbuilder.darkStyle();
             notificationbuilder.show();
-//AB3ATH EL USER LEL INTERFACE JEYA
+//new stage pour l'application selon le role
             u = CS.readById(id_user);
             System.out.println(u.getRole());
+            //role client
             if (u.getRole().equalsIgnoreCase("client")) {
                 try {
                     Stage stage = new Stage();
                    FXMLLoader fx = new FXMLLoader();
                    Pane  root = fx.load(getClass().getResource("Main_app_client.fxml").openStream());
-                   Main_app_clientController CC = fx.getController();
-                   CC.user_passed=u;   
-                   stage.setScene(new Scene(root));
+                   root.getStylesheets().add(getClass().getResource("CSS.css").toString());
+
+                   Main_app_ClientController CC = fx.getController();
+                   CC.user_passed=u;    
+                   CC.initdata();
+               stage.setScene(new Scene(root));
+               stage.initStyle (StageStyle. TRANSPARENT);
+                 
                    stage.showAndWait();
                 } catch (IOException ex) {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
-            } else {
-                //ouvre l'interface du coach
-                //         try{
-//        fxml = FXMLLoader. load (getClass ().getResource ("Main_app_coach.fxml"));
-//        vbox_main_app.getChildren ().removeAll ();
-//        vbox_main_app.getChildren (). setAll (fxml);
-//    }catch (IOException ex) {
-//    
-//}
-            }
-        } else {
+//role coach
+            } else if(u.getRole().equalsIgnoreCase("coach")) {  
+       //   try {
+//                    Stage stage = new Stage();
+//                   FXMLLoader fx = new FXMLLoader();
+//                   Pane  root = fx.load(getClass().getResource("Main_app_coach.fxml").openStream());
+//                   Main_app_clientController CC = fx.getController();
+//                   CC.user_passed=u;        
+//               stage.setScene(new Scene(root));
+//               stage.initStyle (StageStyle. TRANSPARENT);
+//                 
+//                   stage.showAndWait();
+//                } catch (IOException ex) {
+//                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+//                }}
+         }}else{
             //notif error
             Notifications notificationbuilder = Notifications.create().title("Échec de l'authentification").
                     graphic(new ImageView(img_error)).
@@ -126,6 +138,7 @@ public class LoginController implements Initializable {
         }
 
     }
+    
 
     public void mdp_oublie_button(ActionEvent event) {
         try {
