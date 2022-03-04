@@ -8,15 +8,13 @@ and open the template in the editor.
     Author     : Rayen
 */
 
+
 .parent{
     -fx-background-color: transparent;
-
-
 }
 .pane{
      -fx-background-image: url("/images/pibackground.png");
-
-   -fx-background-size: 100%;
+     -fx-background-size: 100%;
  /*  -fx-background-color: #2196f3; */
 }
 .trans-btn-white-border{
@@ -32,7 +30,7 @@ and open the template in the editor.
 }
 .blue-panel{
    
-    -fx-background-color: #262626;
+    -fx-background-color:#00171a;
    
 }
 .tf_box{
@@ -47,7 +45,7 @@ and open the template in the editor.
 .blue-btn{
     -fx-background-color: #ffe700;
     -fx-background-radius: 5px;
-    -fx-text-fill: #262626;
+    -fx-text-fill: #00171a;
 }
 .transparent-btn{
     -fx-background-color: transparent;
@@ -61,8 +59,89 @@ and open the template in the editor.
 }
 .trans-btn-white-line{
     -fx-background-color: transparent;
+    -fx-text-fill: whitesmoke;
+}
+.trans-btn-white-line:hover{
+    -fx-background-color: transparent;
     -fx-background-radius: 5px;
     -fx-border-color: #cccccc;
     -fx-border-width:0px 0px 1px 0px;
+  
+}
+.hello_text{
+   -fx-font-family:Impact;
+   -fx-font-size:36px;
+    -fx-background-color: transparent;
+    -fx-border-color: #DEDEE4;
+    -fx-text-fill: white; 
+    -fx-border-width: 0px 0px 1px 0px;
+    
+}
+.vbox_profile{
+  -fx-background-image: url("/images/profile_vbox.png");
+     -fx-background-size:cover;
+}
+.btn_profile_on_vbox{
+      -fx-background-color: transparent;
+       -fx-font-size:18px;
+      -fx-text-fill: #00171a; 
+      
+}
+
+.btn_profile_on_vbox:hover{
+      -fx-background-color: #00171a;
+      -fx-font-size:18px;
+      -fx-text-fill: #ffe700; 
+      
+}
+.yellow_pane{
+    -fx-background-color:#fed000 ;
+}
+.image_profile
+{
+    -fx-background-image: url("/images/profile.png");
+    -fx-background-size: cover;
+}
+.label_profile
+{
+     -fx-background-color: transparent;
+     -fx-font-size:18px;
     -fx-text-fill: whitesmoke;
+}
+
+.trans-btn-search{
+    -fx-background-color: #00171a;
+    -fx-text-fill: whitesmoke;
+    -fx-background-radius : 30px;
+}
+.trans-btn-contacter{
+    -fx-background-color:#fed000 ;
+    -fx-text-fill: #00171a;
+    -fx-background-radius : 30px;
+}
+.label-nom_coach
+{
+        -fx-background-color: transparent;
+         -fx-text-fill: whitesmoke;
+          -fx-font-family:Impact;
+           -fx-font-size:32px;
+
+}
+
+.label-specialite
+{
+        -fx-background-color: transparent;
+         -fx-text-fill: whitesmoke;
+          -fx-font-family:Impact;
+           -fx-font-size:16px;
+
+}
+.vbox_contacter
+{
+   -fx-background-color: #00171a ;
+   -fx-background-radius : 30px;
+}
+.vbox_coach{
+  -fx-background-image: url("/images/coach_vbox.png");
+     -fx-background-size:cover;
 }

@@ -57,8 +57,8 @@ public class SignupController implements Initializable {
     @FXML
     public void ajout(ActionEvent event) {
         //notification 
-        Image img = new Image("/images/success-24.png");
-        Image img_error = new Image("/images/error-icon-4.png");
+   Image img = new Image("/images/success-24.png",50,50,false,false);
+        Image img_error = new Image("/images/error-icon-4.png",50,50,false,false);
         ClientServices GS = new ClientServices();
         User c = new User(firstname.getText().toString(), lastname.getText().toString(), email.getText().toString(), username.getText().toString(), password.getText().toString(), Integer.parseInt(phone.getText()), Integer.parseInt(age.getText()), "client", "", 0);
      

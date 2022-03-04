@@ -64,8 +64,8 @@ public class LoginController implements Initializable {
         GeneralServices GS = new GeneralServices();
         int id_user;
 
-        Image img = new Image("/images/success-24.png");
-        Image img_error = new Image("/images/error-icon-4.png");
+        Image img = new Image("/images/success-24.png",50,50,false,false);
+        Image img_error = new Image("/images/error-icon-4.png",50,50,false,false);
 
         id_user = GS.Login(username.getText().toString(), password.getText().toString());
 
@@ -92,9 +92,8 @@ public class LoginController implements Initializable {
                 try {
                     Stage stage = new Stage();
                    FXMLLoader fx = new FXMLLoader();
-                   Pane  root = fx.load(getClass().getResource("Main_app_client.fxml").openStream());
+                   Pane  root = fx.load(getClass().getResource("Main_app_Client.fxml").openStream());
                    root.getStylesheets().add(getClass().getResource("CSS.css").toString());
-
                    Main_app_ClientController CC = fx.getController();
                    CC.user_passed=u;    
                    CC.initdata();

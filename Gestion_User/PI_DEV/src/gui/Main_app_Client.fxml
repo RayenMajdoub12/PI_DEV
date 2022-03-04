@@ -6,20 +6,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="980.0" styleClass="tf" stylesheets="@CSS.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="gui.Main_app_ClientController">
+<AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="980.0" styleClass="tf" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Main_app_ClientController">
    <children>
-      <Pane prefHeight="680.0" prefWidth="1280.0" styleClass="background_acceuil">
+      <Pane fx:id="pane" prefHeight="680.0" prefWidth="1280.0" styleClass="background_acceuil" stylesheets="@CSS.css">
          <children>
-            <VBox layoutY="190.0" prefHeight="490.0" prefWidth="1280.0" styleClass="parent">
-               <children>
-                  <Label fx:id="hello" prefHeight="57.0" prefWidth="332.0" styleClass="tf_box" />
-               </children>
-            </VBox>
-            <HBox layoutX="521.0" layoutY="28.0" prefHeight="35.0" prefWidth="759.0">
+            <HBox layoutX="469.0" layoutY="36.0" prefHeight="35.0" prefWidth="811.0">
                <children>
                   <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" styleClass="trans-btn-white-line" text="Acceuil" textFill="WHITE">
                      <HBox.margin>
@@ -29,28 +22,20 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" styleClass="trans-btn-white-line" text="Profile" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#profile" prefHeight="34.0" prefWidth="78.0" styleClass="trans-btn-white-line" text="Profile" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets left="30.0" right="15.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="102.0" styleClass="trans-btn-white-line" text="Les coachs" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#Liste_coach" prefHeight="34.0" prefWidth="102.0" styleClass="trans-btn-white-line" text="Les coachs" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="30.0" right="30.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" styleClass="trans-btn-white-line" text="autre" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets right="30.0" />
+                        <Insets left="15.0" right="15.0" />
                      </HBox.margin>
                   </Button>
                   <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" styleClass="trans-btn-white-line" text="autre" textFill="WHITE">
@@ -58,11 +43,41 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets left="15.0" right="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" styleClass="trans-btn-white-line" text="autre" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" styleClass="trans-btn-white-line" text="autre" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="83.0" styleClass="trans-btn-white-line" text="Settings" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="15.0" right="15.0" />
                      </HBox.margin>
                   </Button>
                </children>
             </HBox>
+            <Label layoutX="504.0" layoutY="77.0" prefHeight="18.0" prefWidth="776.0" styleClass="tf_box" />
+            <Label fx:id="hello" layoutX="14.0" layoutY="323.0" prefHeight="64.0" prefWidth="388.0" styleClass="hello_text">
+               <font>
+                  <Font name="Impact" size="12.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

@@ -81,7 +81,7 @@ public class CoachServices implements I_SERVICE<User>{
 
     @Override
     public List<User> read() {
-                  String req="select * from user"; //  SELECT *FROM client FULL JOIN login ON client.id_client = login.id_user 
+                  String req="select * from user WHERE role ='coach'"; //  SELECT *FROM client FULL JOIN login ON client.id_client = login.id_user 
                     List<User> list=new ArrayList<>();
         try {
             ste=conn.createStatement();
