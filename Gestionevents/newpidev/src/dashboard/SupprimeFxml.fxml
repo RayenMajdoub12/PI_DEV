@@ -4,8 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -29,33 +27,14 @@
             </AnchorPane>
          </children>
       </VBox>
-      <VBox layoutX="31.0" layoutY="634.0" prefHeight="150.0" prefWidth="139.0" spacing="48.0">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Desktop/272761442_624600518783617_41310521917699181_n.jpg" />
-               </image>
-            </ImageView>
-         </children>
-      </VBox>
+      <VBox layoutX="31.0" layoutY="634.0" prefHeight="150.0" prefWidth="139.0" spacing="48.0" />
       <Button layoutX="912.0" layoutY="730.0" mnemonicParsing="false" onAction="#supprimerevent" prefHeight="54.0" prefWidth="298.0" text="Supprimer Evenement" textFill="#e43b3b">
          <font>
             <Font size="25.0" />
          </font>
       </Button>
       <TextField fx:id="IDEVENT" layoutX="449.0" layoutY="299.0" />
-      <ImageView fitHeight="150.0" fitWidth="163.0" layoutX="249.0" layoutY="634.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../Desktop/258759161_620174619286031_7210911662089630315_n.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="167.0" layoutX="467.0" layoutY="634.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../Desktop/259388171_729608798004288_5888659537821079980_n.jpg" />
-         </image>
-      </ImageView>
-      <Button fx:id="can" layoutX="697.0" layoutY="742.0" mnemonicParsing="false" onAction="#cancan" text="cancel" />
-      <Button fx:id="can1" layoutX="707.0" layoutY="752.0" mnemonicParsing="false" onAction="#cancan" text="cancel" />
+      <Button fx:id="can1" layoutX="709.0" layoutY="715.0" mnemonicParsing="false" onAction="#cancan" text="cancel" />
     </children>
     
 </AnchorPane>
