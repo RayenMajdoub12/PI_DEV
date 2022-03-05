@@ -45,9 +45,9 @@
       <Label layoutX="227.0" layoutY="315.0" prefHeight="21.0" prefWidth="100.0" />
       <Label layoutX="227.0" layoutY="380.0" prefHeight="21.0" prefWidth="109.0" />
       <Label layoutX="227.0" layoutY="444.0" prefHeight="21.0" prefWidth="79.0" />
-      <ImageView fitHeight="358.0" fitWidth="239.0" layoutX="459.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="358.0" fitWidth="239.0" layoutX="459.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@3.jpg" />
+            <Image url="@../../../../../272789755_327141889338649_8460460855219739959_n.jpg" />
          </image>
       </ImageView>
    </children>

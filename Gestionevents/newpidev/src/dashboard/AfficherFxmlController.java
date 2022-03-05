@@ -71,7 +71,6 @@ public class AfficherFxmlController implements Initializable {
                           AnchorPane v= new AnchorPane();
                           v.setPrefHeight(546.0);
                           v.setPrefWidth(737.0);
-                       
     
                   Image llss = new Image("/dashboard/"+i+".jpg");
                     ImageView imav= new ImageView(llss);

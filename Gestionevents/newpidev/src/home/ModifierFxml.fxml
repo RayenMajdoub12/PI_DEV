@@ -21,7 +21,7 @@
          <children>
             <ImageView fitHeight="229.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../hamapidev/272761442_624600518783617_41310521917699181_n.jpg" />
+                  <Image url="@../dashboard/7.jpg" />
                </image>
                <VBox.margin>
                   <Insets bottom="10.0" top="50.0" />
@@ -71,7 +71,7 @@
             <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0">
                <children>
                   <TextField layoutX="590.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
-                  <Label layoutX="57.0" layoutY="25.0" prefHeight="35.0" prefWidth="470.0" text="Modifier Evenement" textFill="#e7e5e5">
+                  <Label layoutX="57.0" layoutY="25.0" prefHeight="35.0" prefWidth="470.0" text="Modifier Evenement" textFill="#5690bf">
                      <font>
                         <Font size="24.0" />
                      </font>
