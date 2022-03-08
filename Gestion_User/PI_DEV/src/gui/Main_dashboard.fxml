@@ -7,10 +7,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="1280.0" styleClass="main_dashboard_background" stylesheets="@CSS.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="gui.Main_dashboardController">
+<AnchorPane id="AnchorPane" fx:id="anchor" prefHeight="680.0" prefWidth="1280.0" styleClass="main_dashboard_background" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Main_dashboardController">
    <children>
-      <VBox layoutX="412.0" prefHeight="680.0" prefWidth="867.0" styleClass="tf">
+      <VBox fx:id="vbox" layoutX="412.0" prefHeight="680.0" prefWidth="867.0" styleClass="tf">
          <children>
             <Label prefHeight="683.0" prefWidth="877.0" text="                  Choisissez une gestion" textFill="WHITE">
                <font>
@@ -24,7 +23,7 @@
             <HBox prefHeight="179.0" prefWidth="411.0" />
             <HBox prefHeight="63.0" prefWidth="411.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="134.0" prefWidth="411.0" styleClass="btn_vbox_dashboard" text="Gestion Client" />
+                  <Button mnemonicParsing="false" onAction="#load_choix" prefHeight="134.0" prefWidth="411.0" styleClass="btn_vbox_dashboard" text="Gestion Des Utilisiateurs" />
                </children>
             </HBox>
             <HBox prefHeight="63.0" prefWidth="411.0">
