@@ -73,5 +73,16 @@ public class ProfileController implements Initializable {
             Logger.getLogger(Main_app_ClientController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void modif_client()
+    {
+        try {
+            
+            fxml = FXMLLoader.load(getClass().getResource("Modifier_client.fxml"));
+            pane.getChildren().removeAll();
+            pane.getChildren().setAll(fxml);
+        } catch (IOException ex) {
+            Logger.getLogger(Main_app_ClientController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }

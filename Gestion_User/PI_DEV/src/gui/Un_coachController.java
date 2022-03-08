@@ -6,8 +6,10 @@
 package gui;
 
 import Model.User;
+import javafx.scene.input.MouseEvent ;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -24,21 +26,32 @@ public class Un_coachController implements Initializable {
      */
     @FXML
     private Label coach_nom;
-
     @FXML
     private Label coach_spec;
     @FXML
     private Label coach_pren ;
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    public void setData(User u)
+    private MyListener myListener;
+    private User u;
+     @FXML
+    public void click(MouseEvent ME)
     {
-        coach_nom.setText(u.getNom());
-        coach_pren.setText(u.getPrenom());
-        coach_spec.setText(u.getSpecialite());
-        
+        myListener.onClickListener(u);
     }
+     @Override
+    public void initialize(URL url, ResourceBundle rb) {
+     
+    }
+   
+    public void setData(User u,MyListener myListener)
+    {   this.u=u;
+         this.myListener = myListener ;
+        System.out.println("hi");
+        coach_nom.setText(u.getNom());
+       coach_pren.setText(u.getPrenom());
+       coach_spec.setText(u.getSpecialite());
+    
+ 
+    }
+
+   
 }

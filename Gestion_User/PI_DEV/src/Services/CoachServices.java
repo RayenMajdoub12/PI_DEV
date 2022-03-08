@@ -108,6 +108,21 @@ public class CoachServices implements I_SERVICE<User>{
         }
         return C;
     }
+     public List<User> recherche_coach(String rech)
+    {
+          List<User> list=new ArrayList<>();
+        String req = " SELECT * FROM user WHERE (nom LIKE '%"+rech+"%' OR prenom LIKE '%"+rech+"%'OR email LIKE '%"+rech+"%'OR pseudo LIKE '%"+rech+"%' OR tel LIKE '%"+rech+"%' OR age LIKE '%"+rech+"%' OR specialite LIKE '%"+rech+"%'OR salaire LIKE '%"+rech+"%')AND role ='coach'";
+       try {
+            ste=conn.createStatement();
+            rs= ste.executeQuery(req);
+            while(rs.next()){
+                list.add(new User(rs.getInt("id_user"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("pseudo"),rs.getString("mdp"),rs.getInt("tel"),rs.getInt("age"),rs.getString("role"),rs.getString("specialite"),rs.getInt("salaire")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
 
 }
 

@@ -1,47 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="215.0" prefWidth="225.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Un_coachController">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#click" prefHeight="218.0" prefWidth="215.0" styleClass="pane_un_coach" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Un_coachController">
    <children>
-      <VBox layoutX="-2.0" prefHeight="215.0" prefWidth="225.0">
-         <children>
-            <HBox prefHeight="53.0" prefWidth="225.0">
-               <children>
-                  <Label fx:id="coach_nom" prefHeight="57.0" prefWidth="83.0" text="coach">
-                     <HBox.margin>
-                        <Insets left="15.0" right="25.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="Impact" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="coach_spec" prefHeight="59.0" prefWidth="121.0" text="spec">
-                     <HBox.margin>
-                        <Insets left="25.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="Impact" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <ImageView fitHeight="103.0" fitWidth="102.0">
-               <image>
-                  <Image url="@../../images/profile.png" />
-               </image>
-               <VBox.margin>
-                  <Insets left="65.0" right="35.0" top="30.0" />
-               </VBox.margin>
-            </ImageView>
-         </children>
-      </VBox>
+      <Label fx:id="coach_nom" layoutX="18.0" layoutY="36.0" prefHeight="28.0" prefWidth="178.0" styleClass="label-specialite" textAlignment="CENTER" />
+      <Label fx:id="coach_pren" layoutX="18.0" layoutY="93.0" prefHeight="28.0" prefWidth="178.0" styleClass="label-specialite" textAlignment="CENTER" />
+      <Label fx:id="coach_spec" layoutX="20.0" layoutY="154.0" prefHeight="28.0" prefWidth="178.0" styleClass="label-specialite" textAlignment="CENTER" />
    </children>
 </Pane>

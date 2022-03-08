@@ -64,8 +64,8 @@ public class LoginController implements Initializable {
         GeneralServices GS = new GeneralServices();
         int id_user;
 
-        Image img = new Image("/images/success-24.png",50,50,false,false);
-        Image img_error = new Image("/images/error-icon-4.png",50,50,false,false);
+        Image img = new Image("/images/success-24.png", 50, 50, false, false);
+        Image img_error = new Image("/images/error-icon-4.png", 50, 50, false, false);
 
         id_user = GS.Login(username.getText().toString(), password.getText().toString());
 
@@ -91,22 +91,22 @@ public class LoginController implements Initializable {
             if (u.getRole().equalsIgnoreCase("client")) {
                 try {
                     Stage stage = new Stage();
-                   FXMLLoader fx = new FXMLLoader();
-                   Pane  root = fx.load(getClass().getResource("Main_app_Client.fxml").openStream());
-                   root.getStylesheets().add(getClass().getResource("CSS.css").toString());
-                   Main_app_ClientController CC = fx.getController();
-                   CC.user_passed=u;    
-                   CC.initdata();
-               stage.setScene(new Scene(root));
-               stage.initStyle (StageStyle. TRANSPARENT);
-                 
-                   stage.showAndWait();
+                    FXMLLoader fx = new FXMLLoader();
+                    Pane root = fx.load(getClass().getResource("Main_app_Client.fxml").openStream());
+                    root.getStylesheets().add(getClass().getResource("CSS.css").toString());
+                    Main_app_ClientController CC = fx.getController();
+                    CC.user_passed = u;
+                    CC.initdata();
+                    stage.setScene(new Scene(root));
+                    stage.initStyle(StageStyle.TRANSPARENT);
+
+                    stage.showAndWait();
                 } catch (IOException ex) {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 //role coach
-            } else if(u.getRole().equalsIgnoreCase("coach")) {  
-       //   try {
+            } else if (u.getRole().equalsIgnoreCase("coach")) {
+                //   try {
 //                    Stage stage = new Stage();
 //                   FXMLLoader fx = new FXMLLoader();
 //                   Pane  root = fx.load(getClass().getResource("Main_app_coach.fxml").openStream());
@@ -119,7 +119,23 @@ public class LoginController implements Initializable {
 //                } catch (IOException ex) {
 //                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
 //                }}
-         }}else{
+            } else if (u.getRole().equalsIgnoreCase("admin")) {
+                try {
+                    Stage stage = new Stage();
+                    FXMLLoader fx = new FXMLLoader();
+                    Pane root = fx.load(getClass().getResource("Main_dashboard.fxml").openStream());
+                    root.getStylesheets().add(getClass().getResource("CSS.css").toString());
+                    Main_dashboardController CC = fx.getController();
+                    CC.user_passed = u;
+                    stage.setScene(new Scene(root));
+                    stage.initStyle(StageStyle.TRANSPARENT);
+
+                    stage.showAndWait();
+                } catch (IOException ex) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } else {
             //notif error
             Notifications notificationbuilder = Notifications.create().title("Échec de l'authentification").
                     graphic(new ImageView(img_error)).
@@ -137,7 +153,6 @@ public class LoginController implements Initializable {
         }
 
     }
-    
 
     public void mdp_oublie_button(ActionEvent event) {
         try {

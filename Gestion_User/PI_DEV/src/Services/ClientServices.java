@@ -28,14 +28,16 @@ public class ClientServices implements I_SERVICE<User>{
 
         @Override
     public void insert(User c) {
-        String req = "INSERT INTO user (nom,prenom,email,pseudo,mdp,tel,age,role,salaire,token_mdp)"
+        GeneralServices gs =new GeneralServices();
+       String mdp= gs.EncryptMdp(c.getMdp());
+        String req = "INSERT INTO user (nom,prenom,email,pseudo,mdp,tel,age,role,salaire,tokenmdp)"
                 + " VALUES ('" + c.getNom() + "','" + c.getPrenom() + "',"
                 + "'" + c.getEmail()+ "',"
                 + "'" + c.getPseudo()+ "',"
-                + "'" + c.getMdp()+ "',"
+                + "'" + mdp+ "',"
                 + "'" + c.getTel()+ "',"
                 + "'" + c.getAge()+ "',"
-                + "'" + c.getRole()+ "' ,0,0 )";
+                + "'" + c.getRole()+ "',0,0)";
         try {
             ste = conn.createStatement();
             ste.executeUpdate(req);
@@ -58,7 +60,7 @@ public class ClientServices implements I_SERVICE<User>{
 
     @Override
     public void update(User c) {
-     String req = "UPDATE user SET (nom ='" + c.getNom() + "',prenom ='" + c.getPrenom() + "',email='" + c.getEmail()+ "',pseudo='" + c.getPseudo()+ "',mdp = '" + c.getMdp()+ "',tel = '" + c.getTel()+ "',age ='" + c.getAge()+ "',role='" + c.getRole()+ "') WHERE id_user = '"+c.getId_user()+"'";
+     String req = "UPDATE user SET nom ='" + c.getNom() + "',prenom ='" + c.getPrenom() + "',email='" + c.getEmail()+ "',pseudo='" + c.getPseudo()+ "',mdp = '" + c.getMdp()+ "',tel = '" + c.getTel()+ "',age ='" + c.getAge()+ "',role='" + c.getRole()+ "' WHERE id_user = '"+c.getId_user()+"'";
         try {
             ste = conn.createStatement();
             ste.executeUpdate(req);
@@ -115,7 +117,9 @@ public class ClientServices implements I_SERVICE<User>{
             }
     public void update_mdp(String new_mdp,String pseudo_ou_mail)
     {
-         String req = "UPDATE user SET mdp ='"+new_mdp+"'WHERE   email ='"+pseudo_ou_mail+"'";
+        GeneralServices gs = new GeneralServices (); 
+        String  mdp_enc =  gs.EncryptMdp(new_mdp) ;
+         String req = "UPDATE user SET mdp ='"+mdp_enc+"'WHERE   email ='"+pseudo_ou_mail+"'";
         try {
             ste = conn.createStatement();
             ste.executeUpdate(req);
@@ -123,6 +127,21 @@ public class ClientServices implements I_SERVICE<User>{
         } catch (SQLException ex) {
             System.out.println(ex);
         }
+    }
+    public List<User> recherche_c(String rech)
+    {
+          List<User> list=new ArrayList<>();
+        String req = " SELECT * FROM user WHERE (nom LIKE '%"+rech+"%' OR prenom LIKE '%"+rech+"%'OR email LIKE '%"+rech+"%'OR pseudo LIKE '%"+rech+"%' OR tel LIKE '%"+rech+"%' OR age LIKE '%"+rech+"%')AND role ='client'";
+       try {
+            ste=conn.createStatement();
+            rs= ste.executeQuery(req);
+            while(rs.next()){
+                list.add(new User(rs.getInt("id_user"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("pseudo"),rs.getString("mdp"),rs.getInt("tel"),rs.getInt("age"),rs.getString("role"),rs.getString("specialite"),rs.getInt("salaire")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
  
 }

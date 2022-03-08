@@ -24,6 +24,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 
 /**
  * FXML Controller class
@@ -43,36 +45,70 @@ public class Liste_coachController implements Initializable {
     @FXML
     private ScrollPane scrollpane;
 
+    private MyListener myListener;
+    
+    public String rech ="" ;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         CoachServices cs = new CoachServices();
         List<User> list_coach = new ArrayList<>();
-        list_coach = cs.read();
-        int col = 0, row = 0;
+        list_coach = cs.recherche_coach(rech);
+        int col = 0, row = 1;
+        if (list_coach.size() > 0) {
+            nom_coach.setText(list_coach.get(0).getNom());
+            specialite_coach.setText(list_coach.get(0).getSpecialite());
+            myListener = new MyListener() {
+                @Override
+                public void onClickListener(User u) {
+                    nom_coach.setText(u.getNom());
+                    specialite_coach.setText(u.getSpecialite());
+                }
+            };
+        }
         for (int i = 0; i < list_coach.size(); i++) {
 
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("un_coach.fxml"));
+                Pane a = fxmlLoader.load();
                 Un_coachController coachcont = fxmlLoader.getController();
-                AnchorPane a = fxmlLoader.load();
-
-                coachcont.setData(list_coach.get(i));
+                a.getStylesheets().add(getClass().getResource("CSS.css").toString());
+                coachcont.setData(list_coach.get(i),myListener);
                 if (col == 3) {
-                    col = 0 ;
+                    col = 0;
                     row++;
                 }
                 grid.add(a, col++, row);
+                //widh
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+                //hight
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
                 GridPane.setMargin(a, new Insets(10));
 
             } catch (IOException ex) {
-                Logger.getLogger(Liste_coachController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex);
             }
 
         }
     }
+    @FXML
+    public void onclicksearch()
+    {
+        if(recherche.getText().isEmpty())
+        rech="" ;
+        else
+        rech =recherche.getText();
+        
+        }
+    
 
 }

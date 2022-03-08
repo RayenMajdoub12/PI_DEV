@@ -45,7 +45,8 @@ public class GeneralServices {
     // AUTHENTIFICATION
     public int Login(String pseudo,String mdp)
     { int id_user ;
-        String req="SELECT * FROM user WHERE pseudo ='"+pseudo+"'AND mdp ='"+mdp+"'";  
+      String mdp_enc =  EncryptMdp(mdp) ;
+        String req="SELECT * FROM user WHERE pseudo ='"+pseudo+"'AND mdp ='"+mdp_enc+"'";  
           try {
               ste=conn.createStatement();
               rs= ste.executeQuery(req); 
