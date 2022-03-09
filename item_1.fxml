@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" onMousePressed="#click" prefHeight="220.0" prefWidth="278.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gymgeeks.Item1Controller">
+   <children>
+      <VBox layoutY="10.0" prefHeight="326.0" prefWidth="569.0">
+         <children>
+            <HBox prefHeight="71.0" prefWidth="583.0">
+               <children>
+                  <Label fx:id="nameLabel" alignment="CENTER" prefHeight="36.0" prefWidth="209.0" text="FITNESS">
+                     <font>
+                        <Font name="Cambria Bold" size="29.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="100.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <AnchorPane prefHeight="245.0" prefWidth="569.0">
+               <children>
+                  <VBox layoutX="331.0" layoutY="-83.0" prefHeight="326.0" prefWidth="237.0">
+                     <children>
+                        <Label fx:id="contenu" prefHeight="14.0" prefWidth="154.0">
+                           <VBox.margin>
+                              <Insets top="90.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Cambria Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="descr" editable="false" prefHeight="200.0" prefWidth="203.0" styleClass="shadow" stylesheets="@../values/style.css">
+                           <font>
+                              <Font name="Cambria" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets right="5.0" />
+                           </VBox.margin>
+                        </TextArea>
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="img" fitHeight="230.0" fitWidth="307.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/fitness.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@style.css" />
+      <URL value="@../values/style.css" />
+   </stylesheets>
+   <styleClass>
+      <String fx:value="fruit-item" />
+      <String fx:value="shadow" />
+   </styleClass>
+   <padding>
+      <Insets left="15.0" />
+   </padding>
+</AnchorPane>
