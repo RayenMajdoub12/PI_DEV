@@ -38,16 +38,18 @@ public class CoachServices implements I_SERVICE<User>{
 
         @Override
     public void insert(User c) {
-        String req = "INSERT INTO user (nom,prenom,email,pseudo,mdp,tel,age,role,specialite,salaire)"
+            GeneralServices gs=new GeneralServices();
+    String mdp=gs.EncryptMdp(c.getMdp());
+        String req = "INSERT INTO user (nom,prenom,email,pseudo,mdp,tel,age,role,specialite,salaire,tokenmdp)"
                 + " VALUES ('" + c.getNom() + "','" + c.getPrenom() + "',"
                 + "'" + c.getEmail()+ "',"
                 + "'" + c.getPseudo()+ "',"
-                + "'" + c.getMdp()+ "',"
+                + "'" + mdp+ "',"
                 + "'" + c.getTel()+ "',"
                 + "'" + c.getAge()+ "',"
                 + "'" + c.getRole()+ "',"
                 + "'" + c.getSpecialite()+ "',"
-                + "'" + c.getSalaire()+ "')";
+                + "'" + c.getSalaire()+ "',0)";
         try {
             ste = conn.createStatement();
             ste.executeUpdate(req);
@@ -70,7 +72,9 @@ public class CoachServices implements I_SERVICE<User>{
 
     @Override
     public void update(User c) {
-     String req = "UPDATE user SET (nom ='" + c.getNom() + "',prenom ='" + c.getPrenom() + "',email='" + c.getEmail()+ "',pseudo='" + c.getPseudo()+ "',mdp = '" + c.getMdp()+ "',tel = '" + c.getTel()+ "',age ='" + c.getAge()+ "',role='" + c.getRole()+ "',specialite='" + c.getSpecialite()+ "',salaire='" + c.getSalaire()+ "') WHERE id_user = '"+c.getId_user()+"'";
+        GeneralServices gs=new GeneralServices();
+    String mdp=gs.EncryptMdp(c.getMdp());
+     String req = "UPDATE user SET nom ='" + c.getNom() + "',prenom ='" + c.getPrenom() + "',email='" + c.getEmail()+ "',pseudo='" + c.getPseudo()+ "',mdp = '" +mdp+ "',tel = '" + c.getTel()+ "',age ='" + c.getAge()+ "',specialite='" + c.getSpecialite()+ "',salaire='" + c.getSalaire()+ "') WHERE id_user = '"+c.getId_user()+"'";
         try {
             ste = conn.createStatement();
             ste.executeUpdate(req);
@@ -81,7 +85,7 @@ public class CoachServices implements I_SERVICE<User>{
 
     @Override
     public List<User> read() {
-                  String req="select * from user WHERE role ='coach'"; //  SELECT *FROM client FULL JOIN login ON client.id_client = login.id_user 
+                  String req="select * from user WHERE role ='coach'";
                     List<User> list=new ArrayList<>();
         try {
             ste=conn.createStatement();
@@ -98,7 +102,7 @@ public class CoachServices implements I_SERVICE<User>{
     @Override
     public User readById(int id) {
       User C =new User();
-         String req="select * from user WHERE id_user='"+id+"'";  //SELECT *FROM client FULL JOIN login ON client.id_login = login.id_login
+         String req="select * from user WHERE id_user='"+id+"'";
         try {
             ste=conn.createStatement();
              rs= ste.executeQuery(req);

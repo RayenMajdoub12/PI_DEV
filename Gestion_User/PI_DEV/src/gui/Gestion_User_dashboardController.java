@@ -52,7 +52,17 @@ public class Gestion_User_dashboardController implements Initializable {
 
     @FXML
     public void ouvre_coach() {
-
+    try {
+                    Stage stage = new Stage();
+                    FXMLLoader fx = new FXMLLoader();
+                    Pane root = fx.load(getClass().getResource("Liste_coach_dashboard.fxml").openStream());
+                    root.getStylesheets().add(getClass().getResource("CSS.css").toString());     
+                    stage.setScene(new Scene(root));
+                    stage.initStyle(StageStyle.TRANSPARENT);
+                    stage.showAndWait();
+                } catch (IOException ex) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
     }
 
 

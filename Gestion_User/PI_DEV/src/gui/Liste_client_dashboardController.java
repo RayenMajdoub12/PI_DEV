@@ -49,15 +49,13 @@ public class Liste_client_dashboardController implements Initializable {
      * Initializes the controller class.
      */
     @FXML
+    private AnchorPane a;
+    @FXML
     private TextField rechercher;
-
     @FXML
     private ListView<AnchorPane> listview;
     private MyListener myListener;
-
     public String rech = "";
-
-    private TextField id_text;
     @FXML
     private TextField nom_text;
     @FXML
@@ -72,30 +70,20 @@ public class Liste_client_dashboardController implements Initializable {
     private TextField tel_text;
     @FXML
     private TextField age_text;
+    
     @FXML
-    private Label photo;
+    private Label iduss;
     @FXML
-    private Label fruitNameLable;
-    @FXML
-    private VBox chosenFruitCard;
-    @FXML
-    private Label Pseudo_du_client;
-    @FXML
-    private ScrollPane scroll;
-    @FXML
-    private Pane scrol_right;
-    @FXML
-    private Button button_modifier;
-    @FXML
-    private Button button_supprimer;
-    @FXML
-    private Label label_id;
-    @FXML
-    private TextField iduss;
+    private Label pseudo_show;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         ClientServices cs = new ClientServices();
+        setdata();
+    }
+
+    public void setdata() {
+        listview.getItems().clear();
+        ClientServices cs = new ClientServices();
         List<User> list_client = new ArrayList<>();
         list_client = cs.recherche_c(rech);
 
@@ -103,14 +91,16 @@ public class Liste_client_dashboardController implements Initializable {
             myListener = new MyListener() {
                 @Override
                 public void onClickListener(User u) {
-                    iduss.setText(""+u.getId_user());
+
+                    iduss.setText("" + u.getId_user());
                     nom_text.setText(u.getNom());
                     prenom_text.setText(u.getPrenom());
                     email_text.setText(u.getEmail());
                     pseudo_text.setText(u.getPseudo());
+                      pseudo_show.setText(u.getPseudo());
                     mdp_text.setText(u.getMdp());
-                    tel_text.setText(""+u.getTel());
-                    age_text.setText(""+u.getAge());
+                    tel_text.setText("" + u.getTel());
+                    age_text.setText("" + u.getAge());
 
                 }
             };
@@ -123,7 +113,7 @@ public class Liste_client_dashboardController implements Initializable {
                 AnchorPane a = fxmlLoader.load();
                 Un_ClientController coachcont = fxmlLoader.getController();
                 a.getStylesheets().add(getClass().getResource("CSS.css").toString());
-                coachcont.setData(list_client.get(i),myListener);
+                coachcont.setData(list_client.get(i), myListener);
                 listview.getItems().add(a);
             } catch (IOException ex) {
                 System.out.println(ex);
@@ -131,39 +121,48 @@ public class Liste_client_dashboardController implements Initializable {
         }
 
     }
-
-    @FXML
-    public void edit_client() {
-
-    }
-
     @FXML
     public void modifier_terminer() {
+        User u = new User();
+        ClientServices cs = new ClientServices();
+        u.setId_user(Integer.parseInt(iduss.getText()));
+        u.setPrenom(prenom_text.getText());
+        u.setNom(nom_text.getText());
+        u.setEmail(email_text.getText());
+        u.setMdp(mdp_text.getText());
+        u.setPseudo(pseudo_text.getText());
+        u.setTel(Integer.parseInt(tel_text.getText()));
+        u.setAge(Integer.parseInt(age_text.getText()));
+        cs.update(u);
+        setdata();
 
     }
 
     @FXML
     public void supprimer_terminer() {
-
+        User u = new User();
+        ClientServices cs = new ClientServices();
+        u.setId_user(Integer.parseInt(iduss.getText()));
+        cs.delete(u);
+        setdata();
     }
 
     @FXML
-    public void to_menu_back() //close men projet tofla 
+    public void to_menu_back() 
     {
-
+        Stage stage = (Stage) a.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
-       public void onclicksearch()
-    {
-        if(rechercher.getText().isEmpty())
-        rech="" ;
-        else
-        rech =rechercher.getText();
-        
+    public void onclicksearch() {
+        if (rechercher.getText().isEmpty()) {
+            rech = "";
+        } else {
+            rech = rechercher.getText();
         }
+        setdata();
 
-    @FXML
-    private void rechercher(KeyEvent event) {
     }
+
 }

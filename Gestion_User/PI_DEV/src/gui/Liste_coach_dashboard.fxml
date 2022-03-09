@@ -1,11 +1,240 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Liste_coach_dashboardController">
-    
+<AnchorPane id="AnchorPane" fx:id="a" prefHeight="400.0" prefWidth="600.0" styleClass="main_dashboard_background" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Liste_coach_dashboardController">
+   <children>
+      <BorderPane prefHeight="810.0" prefWidth="1315.0">
+         <left>
+            <VBox prefHeight="200.0" prefWidth="435.0" styleClass="tf" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="268.0" prefWidth="435.0">
+                     <children>
+                        <Label fx:id="photo" prefHeight="164.0" prefWidth="160.0" styleClass="photo" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="47.0" prefWidth="319.0" stylesheets="" VBox.vgrow="NEVER">
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                     <styleClass>
+                        <String fx:value="search-box" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </HBox>
+                  <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="fruitNameLable" contentDisplay="CENTER" layoutX="172.0" layoutY="-5.0" prefHeight="48.0" prefWidth="244.0" text="Coach" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria" size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <VBox fx:id="chosenFruitCard" alignment="CENTER" prefHeight="571.0" prefWidth="357.0">
+                     <VBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label prefHeight="49.0" prefWidth="358.0" styleClass="tf" text="     VOUS ÊTES EN TRAIN ">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="49.0" prefWidth="358.0" styleClass="tf" text="  DE MODIFIER LE COMPTE ">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="49.0" prefWidth="358.0" styleClass="tf" text="                      DE">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="50.0" prefWidth="335.0">
+                           <children>
+                              <Pane prefHeight="50.0" prefWidth="135.0" />
+                              <Label fx:id="pseudo_show" prefHeight="49.0" prefWidth="243.0" styleClass="tf">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Button mnemonicParsing="false" onAction="#ajouter_coach" prefHeight="50.0" prefWidth="270.0" styleClass="trans-btn-search" text="Ajouter un coach" textFill="#828282">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                           <children>
+                              <Separator prefHeight="0.0" prefWidth="118.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Separator>
+                              <Separator prefHeight="0.0" prefWidth="118.0">
+                                 <opaqueInsets>
+                                    <Insets left="50.0" />
+                                 </opaqueInsets>
+                              </Separator>
+                           </children>
+                        </HBox>
+                     </children>
+                     <styleClass>
+                        <String fx:value="tf" />
+                        <String fx:value="tf" />
+                     </styleClass>
+                  </VBox>
+                  <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <Pane prefHeight="65.0" prefWidth="393.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label layoutX="71.0" layoutY="30.0" prefHeight="49.0" prefWidth="358.0" styleClass="tf" text="Coach dashboard">
+                                 <font>
+                                    <Font name="Cambria Bold" size="40.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="62.0" prefWidth="572.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="62.0" prefWidth="688.0" styleClass="" stylesheets="">
+                           <children>
+                              <TextField fx:id="rechercher" prefHeight="25.0" prefWidth="346.0" promptText="Tapez ici pour chercher" styleClass="tf_box">
+                                 <HBox.margin>
+                                    <Insets right="50.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button mnemonicParsing="false" onAction="#onclicksearch" prefHeight="40.0" prefWidth="87.0" styleClass="trans-btn-search" text="Chercher" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="84.0" prefWidth="96.0" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="42.0" stylesheets="" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <ScrollPane fx:id="scroll" prefHeight="663.0" prefWidth="630.0" styleClass="tf">
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                           <content>
+                              <ListView fx:id="listview" prefHeight="653.0" prefWidth="589.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+         <right>
+            <Pane fx:id="scrol_right" minHeight="-Infinity" prefHeight="768.0" prefWidth="283.0" styleClass="btn_vbox_dashboard" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="button_modifier" layoutX="14.0" layoutY="705.0" mnemonicParsing="false" onAction="#modifier_terminer" prefHeight="31.0" prefWidth="113.0" styleClass="trans-btn-white-border" text="Modifier" textFill="#828282">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="button_supprimer" layoutX="158.0" layoutY="705.0" mnemonicParsing="false" onAction="#supprimer_terminer" prefHeight="31.0" prefWidth="113.0" styleClass="trans-btn-white-border" text="Supprimer" textFill="#828282">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="label_id" alignment="CENTER" layoutX="48.0" layoutY="273.0" prefHeight="28.0" prefWidth="187.0" />
+                  <Button layoutX="158.0" layoutY="14.0" mnemonicParsing="false" onAction="#to_menu_back" prefHeight="31.0" prefWidth="105.0" styleClass="trans-btn-search" text="Retour" textFill="WHITE" />
+                  <VBox layoutX="37.0" layoutY="111.0" prefHeight="571.0" prefWidth="209.0">
+                     <children>
+                        <Label fx:id="iduss" prefHeight="48.0" prefWidth="209.0" styleClass="tf_box" text="ID">
+                           <VBox.margin>
+                              <Insets bottom="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="nom_text" promptText="nom" styleClass="tf_box">
+                           <opaqueInsets>
+                              <Insets bottom="30.0" />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets bottom="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="prenom_text" promptText="prenom" styleClass="tf_box">
+                           <VBox.margin>
+                              <Insets bottom="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="email_text" promptText="email" styleClass="tf_box">
+                           <VBox.margin>
+                              <Insets bottom="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="pseudo_text" promptText="pseudo" styleClass="tf_box">
+                           <VBox.margin>
+                              <Insets bottom="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="mdp_text" promptText="mot de passe" styleClass="tf_box">
+                           <VBox.margin>
+                              <Insets bottom="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="tel_text" promptText="telephone" styleClass="tf_box">
+                           <VBox.margin>
+                              <Insets bottom="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="age_text" promptText="age" styleClass="tf_box">
+                           <VBox.margin>
+                              <Insets bottom="15.0" />
+                           </VBox.margin></TextField>
+                        <TextField fx:id="spec_text" promptText="Specialite" styleClass="tf_box">
+                           <VBox.margin>
+                              <Insets bottom="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="sal_text" promptText="Salaire" styleClass="tf_box" />
+                     </children>
+                     <padding>
+                        <Insets bottom="30.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </Pane>
+         </right>
+      </BorderPane>
+   </children>
 </AnchorPane>

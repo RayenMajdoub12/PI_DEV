@@ -60,7 +60,9 @@ public class ClientServices implements I_SERVICE<User>{
 
     @Override
     public void update(User c) {
-     String req = "UPDATE user SET nom ='" + c.getNom() + "',prenom ='" + c.getPrenom() + "',email='" + c.getEmail()+ "',pseudo='" + c.getPseudo()+ "',mdp = '" + c.getMdp()+ "',tel = '" + c.getTel()+ "',age ='" + c.getAge()+ "',role='" + c.getRole()+ "' WHERE id_user = '"+c.getId_user()+"'";
+       GeneralServices gs = new GeneralServices();
+     String mdp=  gs.EncryptMdp(c.getMdp());
+     String req = "UPDATE user SET nom ='" + c.getNom() + "',prenom ='" + c.getPrenom() + "',email='" + c.getEmail()+ "',pseudo='" + c.getPseudo()+ "',mdp = '" + mdp+ "',tel = '" + c.getTel()+ "',age ='" + c.getAge()+ "' WHERE id_user = '"+c.getId_user()+"'";
         try {
             ste = conn.createStatement();
             ste.executeUpdate(req);

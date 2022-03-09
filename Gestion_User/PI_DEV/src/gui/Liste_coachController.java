@@ -46,15 +46,25 @@ public class Liste_coachController implements Initializable {
     private ScrollPane scrollpane;
 
     private MyListener myListener;
-    
-    public String rech ="" ;
+
+    public String rech = "";
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        setdata();
+
+    }
+
+    public void setdata() {
+        grid.setGridLinesVisible(false);
+        grid.getColumnConstraints().clear();
+        grid.getRowConstraints().clear();
+        grid.getChildren().clear();
+        grid.setGridLinesVisible(false);
+
         CoachServices cs = new CoachServices();
         List<User> list_coach = new ArrayList<>();
         list_coach = cs.recherche_coach(rech);
@@ -78,7 +88,7 @@ public class Liste_coachController implements Initializable {
                 Pane a = fxmlLoader.load();
                 Un_coachController coachcont = fxmlLoader.getController();
                 a.getStylesheets().add(getClass().getResource("CSS.css").toString());
-                coachcont.setData(list_coach.get(i),myListener);
+                coachcont.setData(list_coach.get(i), myListener);
                 if (col == 3) {
                     col = 0;
                     row++;
@@ -100,15 +110,15 @@ public class Liste_coachController implements Initializable {
 
         }
     }
+
     @FXML
-    public void onclicksearch()
-    {
-        if(recherche.getText().isEmpty())
-        rech="" ;
-        else
-        rech =recherche.getText();
-        
+    public void onclicksearch() {
+        if (recherche.getText().isEmpty()) {
+            rech = "";
+        } else {
+            rech = recherche.getText();
         }
-    
+        setdata();
+    }
 
 }

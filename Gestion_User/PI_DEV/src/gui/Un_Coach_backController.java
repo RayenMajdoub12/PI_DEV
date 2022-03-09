@@ -19,7 +19,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author Rayen
  */
-public class Un_ClientController implements Initializable {
+public class Un_Coach_backController implements Initializable {
 
     @FXML
     private AnchorPane anchor_client;
@@ -45,8 +45,11 @@ public class Un_ClientController implements Initializable {
     private Label label_tel;
     @FXML
     private Label label_age;
+    @FXML
+    private Label label_speci;
+    @FXML
+    private Label label_sal;
 
-  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -56,22 +59,23 @@ public class Un_ClientController implements Initializable {
         this.u = u;
         this.myListener = myListener;
         System.out.println("hi");
-        label_id.setText(""+u.getId_user());
+        label_id.setText("" + u.getId_user());
         label_nom.setText(u.getNom());
         label_pren.setText(u.getPrenom());
         label_pseudo.setText(u.getPseudo());
         label_email.setText(u.getEmail());
         label_mdp.setText(u.getMdp());
-        label_tel.setText(""+u.getTel()) ;
-        label_age.setText(""+u.getAge());
-       
-    
- 
+        label_tel.setText("" + u.getTel());
+        label_age.setText("" + u.getAge());
+        label_speci.setText(u.getSpecialite());
+        label_sal.setText("" + u.getSalaire());
+
     }
 
     @FXML
     private void onclick(MouseEvent event) {
-                myListener.onClickListener(u);
+        myListener.onClickListener(u);
 
     }
+
 }

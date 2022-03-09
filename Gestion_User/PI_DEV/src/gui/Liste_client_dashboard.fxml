@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="main_dashboard_background" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Liste_client_dashboardController">
+<AnchorPane id="AnchorPane" fx:id="a" prefHeight="400.0" prefWidth="600.0" styleClass="main_dashboard_background" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Liste_client_dashboardController">
    <children>
       <BorderPane prefHeight="810.0" prefWidth="1315.0">
          <left>
@@ -48,18 +48,36 @@
                         <Insets left="50.0" right="50.0" />
                      </VBox.margin>
                      <children>
-                        <HBox prefHeight="60.0" prefWidth="334.0">
+                        <Label prefHeight="49.0" prefWidth="358.0" styleClass="tf" text="     VOUS ÊTES EN TRAIN ">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="49.0" prefWidth="358.0" styleClass="tf" text="  DE MODIFIER LE COMPTE ">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="49.0" prefWidth="358.0" styleClass="tf" text="                      DE">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="50.0" prefWidth="335.0">
                            <children>
-                              <Label fx:id="Pseudo_du_client" prefHeight="57.0" prefWidth="171.0" textFill="WHITE">
+                              <Pane prefHeight="50.0" prefWidth="135.0" />
+                              <Label fx:id="pseudo_show" prefHeight="49.0" prefWidth="243.0" styleClass="tf">
                                  <font>
-                                    <Font name="Cambria" size="36.0" />
+                                    <Font name="Arial Bold" size="24.0" />
                                  </font>
                               </Label>
                            </children>
-                           <VBox.margin>
-                              <Insets left="20.0" top="30.0" />
-                           </VBox.margin>
                         </HBox>
+                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="trans-btn-search" text="Modifier client" textFill="#828282">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
                         <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
                            <VBox.margin>
                               <Insets top="20.0" />
@@ -77,11 +95,6 @@
                               </Separator>
                            </children>
                         </HBox>
-                        <Button mnemonicParsing="false" onAction="#edit_client" prefHeight="50.0" prefWidth="270.0" styleClass="trans-btn-search" text="Edit Client" textFill="#828282">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Button>
                      </children>
                      <styleClass>
                         <String fx:value="tf" />
@@ -102,7 +115,7 @@
                      <children>
                         <Pane prefHeight="65.0" prefWidth="393.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label layoutX="71.0" layoutY="30.0" prefHeight="49.0" prefWidth="358.0" text="Client dashboard" textFill="#878787">
+                              <Label layoutX="71.0" layoutY="30.0" prefHeight="49.0" prefWidth="358.0" styleClass="tf" text="Client dashboard">
                                  <font>
                                     <Font name="Cambria Bold" size="40.0" />
                                  </font>
@@ -112,28 +125,14 @@
                   </HBox>
                   <HBox prefHeight="62.0" prefWidth="572.0">
                      <children>
-                        <Pane prefHeight="84.0" prefWidth="96.0" />
-                        <HBox alignment="CENTER" disable="true" prefHeight="100.0" prefWidth="341.0" styleClass="" stylesheets="">
+                        <HBox alignment="CENTER" prefHeight="62.0" prefWidth="688.0" styleClass="" stylesheets="">
                            <children>
-                              <VBox alignment="CENTER" prefHeight="100.0" prefWidth="214.0">
-                                 <children>
-                                    <TextField fx:id="rechercher" onKeyPressed="#rechercher" prefHeight="40.0" prefWidth="262.0" promptText="Type here to search" styleClass="tf_box">
-                                       <font>
-                                          <Font name="Cambria" size="18.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                        <Pane prefHeight="100.0" prefWidth="32.0" HBox.hgrow="ALWAYS" />
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="336.0" styleClass="" stylesheets="">
-                           <children>
-                              <VBox alignment="CENTER" prefHeight="100.0" prefWidth="203.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#onclicksearch" prefHeight="40.0" prefWidth="100.0" styleClass="trans-btn-search" text="Chercher" textFill="WHITE" />
-                                 </children>
-                              </VBox>
+                              <TextField fx:id="rechercher" prefHeight="25.0" prefWidth="346.0" promptText="Tapez ici pour chercher" styleClass="tf_box">
+                                 <HBox.margin>
+                                    <Insets right="50.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button mnemonicParsing="false" onAction="#onclicksearch" prefHeight="40.0" prefWidth="87.0" styleClass="trans-btn-search" text="Chercher" textFill="WHITE" />
                            </children>
                         </HBox>
                         <Pane prefHeight="84.0" prefWidth="96.0" />
@@ -175,14 +174,11 @@
                   <Button layoutX="158.0" layoutY="14.0" mnemonicParsing="false" onAction="#to_menu_back" prefHeight="31.0" prefWidth="105.0" styleClass="trans-btn-search" text="Retour" textFill="WHITE" />
                   <VBox layoutX="48.0" layoutY="145.0" prefHeight="374.0" prefWidth="209.0">
                      <children>
-                        <TextField fx:id="iduss" promptText="id" styleClass="tf_box">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
+                        <Label fx:id="iduss" prefHeight="95.0" prefWidth="209.0" styleClass="tf_box" text="ID">
                            <VBox.margin>
                               <Insets bottom="30.0" />
                            </VBox.margin>
-                        </TextField>
+                        </Label>
                         <TextField fx:id="nom_text" promptText="nom" styleClass="tf_box">
                            <opaqueInsets>
                               <Insets bottom="30.0" />
