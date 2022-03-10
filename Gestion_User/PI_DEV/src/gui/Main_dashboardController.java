@@ -27,7 +27,6 @@ import javafx.stage.StageStyle;
  *
  * @author Rayen
  */
-
 public class Main_dashboardController implements Initializable {
 
     /**
@@ -36,66 +35,68 @@ public class Main_dashboardController implements Initializable {
     @FXML
     VBox vbox;
     @FXML
-    Parent fxml ;
+    Parent fxml;
     @FXML
     AnchorPane anchor;
-    public static User user_passed ;
+    public static User user_passed;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    } 
-  public void  load_choix ()
-  {
-       try {
+
+    }
+
+    public void load_choix() {
+        try {
             fxml = FXMLLoader.load(getClass().getResource("Gestion_User_dashboard.fxml"));
             vbox.getChildren().removeAll();
             vbox.getChildren().setAll(fxml);
         } catch (IOException ex) {
 
         }
-  }
-    public void  load_choix_equi ()
-  {
-       try {
+    }
+
+    public void load_choix_equi() {
+        try {
             fxml = FXMLLoader.load(getClass().getResource("Gestion_equi_dashboard.fxml"));
             vbox.getChildren().removeAll();
             vbox.getChildren().setAll(fxml);
         } catch (IOException ex) {
 
         }
-  }
-       public void  load_choix_blog ()
-  {
-            try {
-                    Stage stage = new Stage();
-                    FXMLLoader fx = new FXMLLoader();
-                    Pane root = fx.load(getClass().getResource("bBlog.fxml").openStream());   
-                    stage.setScene(new Scene(root));
-                    stage.initStyle(StageStyle.TRANSPARENT);
-                    stage.showAndWait();
-                } catch (IOException ex) {
-                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-  }
-       public void load_choix_event()
-       {
-             try {
+    }
+
+    public void load_choix_blog() {
+        try {
+            Stage stage = new Stage();
+            FXMLLoader fx = new FXMLLoader();
+            Pane root = fx.load(getClass().getResource("bBlog.fxml").openStream());
+            root.getStylesheets().add(getClass().getResource("CSS.css").toString());
+            stage.setScene(new Scene(root));
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void load_choix_event() {
+        try {
             fxml = FXMLLoader.load(getClass().getResource("Gestion_event_dashboard.fxml"));
             vbox.getChildren().removeAll();
             vbox.getChildren().setAll(fxml);
         } catch (IOException ex) {
 
         }
-       }
-         public void load_choix_seance()
-       {
-             try {
+    }
+
+    public void load_choix_seance() {
+        try {
             fxml = FXMLLoader.load(getClass().getResource("Gestion_seance_dashboard.fxml"));
             vbox.getChildren().removeAll();
             vbox.getChildren().setAll(fxml);
         } catch (IOException ex) {
 
         }
-       }
-    
+    }
+
 }

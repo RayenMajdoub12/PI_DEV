@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.BBlogController">
+<AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="1280.0" styleClass="main_dashboard_background" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.BBlogController">
    <children>
-      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="425.0" prefWidth="1107.0">
+      <AnchorPane id="AnchorPane" layoutX="87.0" layoutY="104.0" prefHeight="425.0" prefWidth="1107.0" styleClass="tf">
          <children>
             <VBox layoutX="14.0" layoutY="25.0" prefHeight="291.0" prefWidth="138.0" spacing="45.0">
                <children>
@@ -23,11 +23,11 @@
             </VBox>
             <VBox layoutX="172.0" layoutY="14.0" prefHeight="308.0" prefWidth="294.0" spacing="35.0">
                <children>
-                  <TextField fx:id="tfid_b" />
-                  <TextField fx:id="tftitre" />
-                  <TextField fx:id="tfdescription" />
-                  <TextField fx:id="tfcontenu" />
-                  <TextField fx:id="tfimageblog" />
+                  <TextField fx:id="tfid_b" styleClass="tf_box" />
+                  <TextField fx:id="tftitre" styleClass="tf_box" />
+                  <TextField fx:id="tfdescription" styleClass="tf_box" />
+                  <TextField fx:id="tfcontenu" styleClass="tf_box" />
+                  <TextField fx:id="tfimageblog" styleClass="tf_box" />
                </children>
             </VBox>
             <TableView fx:id="tvblogs" layoutX="546.0" layoutY="25.0" onMouseClicked="#handleMouseAction" prefHeight="371.0" prefWidth="412.0">
@@ -39,11 +39,11 @@
                   <TableColumn fx:id="coimage" minWidth="0.0" prefWidth="374.0" text="image" />
                </columns>
             </TableView>
-            <Button fx:id="tfinsererblog" layoutX="14.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="108.0" style="-fx-background-color: #32CD32;" text="inserer" />
-            <Button fx:id="tfsupprimerblog" layoutX="137.0" layoutY="338.0" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-background-color: #32CD32;" text="supprimer" />
-            <Button fx:id="tfupdateblog" layoutX="231.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="88.0" style="-fx-background-color: #32CD32;" text="update" />
-            <Button fx:id="tfimprimer" layoutX="334.0" layoutY="335.0" mnemonicParsing="false" onAction="#imprimer" prefHeight="31.0" prefWidth="88.0" style="-fx-background-color: #32CD32;" text="imprimer" />
-            <Button fx:id="btnbrowser" layoutX="435.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="88.0" style="-fx-background-color: #32CD32;" text="browser" />
+            <Button fx:id="tfinsererblog" layoutX="14.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="108.0" styleClass="trans-btn-search" text="inserer" />
+            <Button fx:id="tfsupprimerblog" layoutX="128.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="88.0" styleClass="trans-btn-search" text="supprimer" />
+            <Button fx:id="tfupdateblog" layoutX="231.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="88.0" styleClass="trans-btn-search" text="update" />
+            <Button fx:id="tfimprimer" layoutX="334.0" layoutY="335.0" mnemonicParsing="false" onAction="#imprimer" prefHeight="31.0" prefWidth="88.0" styleClass="trans-btn-search" text="imprimer" />
+            <Button fx:id="btnbrowser" layoutX="435.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="88.0" styleClass="trans-btn-search" text="browser" />
          </children>
       </AnchorPane>
    </children>

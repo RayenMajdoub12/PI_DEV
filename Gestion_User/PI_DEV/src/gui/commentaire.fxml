@@ -19,9 +19,9 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.Rating?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFF0;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CommentaireController">
+<AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="1280.0" styleClass="blue-panel" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CommentaireController">
    <children>
-      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="534.0" prefWidth="843.0">
+      <AnchorPane id="AnchorPane" layoutX="156.0" layoutY="55.0" prefHeight="534.0" prefWidth="843.0">
          <children>
             <BorderPane prefHeight="534.0" prefWidth="1032.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-114.0" AnchorPane.topAnchor="0.0">
                <left>
@@ -34,7 +34,7 @@
                            <children>
                               <HBox prefHeight="63.0" prefWidth="282.0">
                                  <children>
-                                    <Label fx:id="BlogNameLabel" alignment="CENTER" prefHeight="34.0" prefWidth="202.0" text="fitness" textFill="WHITE">
+                                    <Label fx:id="BlogNameLabel" alignment="CENTER" prefHeight="34.0" prefWidth="202.0" text="Fitness" textFill="WHITE">
                                        <font>
                                           <Font name="Cambria Bold" size="27.0" />
                                        </font>
@@ -94,7 +94,7 @@
                <right>
                   <VBox prefHeight="534.0" prefWidth="731.0" BorderPane.alignment="CENTER">
                      <children>
-                        <HBox prefHeight="18.0" prefWidth="721.0">
+                        <HBox prefHeight="18.0" prefWidth="721.0" style="-fx-background-color: #FFEBCD;">
                            <children>
                               <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="596.0" text="My Account">
                                  <font>

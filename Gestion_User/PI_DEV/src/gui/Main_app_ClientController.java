@@ -112,6 +112,7 @@ public class Main_app_ClientController implements Initializable {
             Stage stage = new Stage();
             FXMLLoader fx = new FXMLLoader();
             Pane root = fx.load(getClass().getResource("commentaire.fxml").openStream());
+             root.getStylesheets().add(getClass().getResource("CSS.css").toString());
             CommentaireController CC = fx.getController();
             stage.setScene(new Scene(root));
             stage.initStyle(StageStyle.TRANSPARENT);
