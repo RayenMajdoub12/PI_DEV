@@ -106,26 +106,12 @@ public class LoginController implements Initializable {
                 }
 //role coach
             } else if (u.getRole().equalsIgnoreCase("coach")) {
-                //   try {
-//                    Stage stage = new Stage();
-//                   FXMLLoader fx = new FXMLLoader();
-//                   Pane  root = fx.load(getClass().getResource("Main_app_coach.fxml").openStream());
-//                   Main_app_clientController CC = fx.getController();
-//                   CC.user_passed=u;        
-//               stage.setScene(new Scene(root));
-//               stage.initStyle (StageStyle. TRANSPARENT);
-//                 
-//                   stage.showAndWait();
-//                } catch (IOException ex) {
-//                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-//                }}
-            } else if (u.getRole().equalsIgnoreCase("admin")) {
                 try {
                     Stage stage = new Stage();
                     FXMLLoader fx = new FXMLLoader();
-                    Pane root = fx.load(getClass().getResource("Main_dashboard.fxml").openStream());
+                    Pane root = fx.load(getClass().getResource("Main_app_Coach.fxml").openStream());
                     root.getStylesheets().add(getClass().getResource("CSS.css").toString());
-                    Main_dashboardController CC = fx.getController();
+                    Main_app_CoachController CC = fx.getController();
                     CC.user_passed = u;
                     stage.setScene(new Scene(root));
                     stage.initStyle(StageStyle.TRANSPARENT);
@@ -135,26 +121,43 @@ public class LoginController implements Initializable {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        } else {
+         else if (u.getRole().equalsIgnoreCase("admin")) {
+            try {
+                Stage stage = new Stage();
+                FXMLLoader fx = new FXMLLoader();
+                Pane root = fx.load(getClass().getResource("Main_dashboard.fxml").openStream());
+                root.getStylesheets().add(getClass().getResource("CSS.css").toString());
+                Main_dashboardController CC = fx.getController();
+                CC.user_passed = u;
+                stage.setScene(new Scene(root));
+                stage.initStyle(StageStyle.TRANSPARENT);
+
+                stage.showAndWait();
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        }
+        else {
             //notif error
             Notifications notificationbuilder = Notifications.create().title("Échec de l'authentification").
-                    graphic(new ImageView(img_error)).
-                    hideAfter(Duration.seconds(5)).
-                    position(Pos.BOTTOM_RIGHT).
-                    onAction(new EventHandler<ActionEvent>() {
+                graphic(new ImageView(img_error)).
+                hideAfter(Duration.seconds(5)).
+                position(Pos.BOTTOM_RIGHT).
+                onAction(new EventHandler<ActionEvent>() {
 
-                        @Override
-                        public void handle(ActionEvent event) {
-                            System.out.println("clicked on notification");
-                        }
-                    });
-            notificationbuilder.darkStyle();
-            notificationbuilder.show();
-        }
-
+                    @Override
+                    public void handle(ActionEvent event) {
+                        System.out.println("clicked on notification");
+                    }
+                });
+        notificationbuilder.darkStyle();
+        notificationbuilder.show();
     }
 
-    public void mdp_oublie_button(ActionEvent event) {
+}
+
+public void mdp_oublie_button(ActionEvent event) {
         try {
             fxml = FXMLLoader.load(getClass().getResource("mdp_oublie.fxml"));
             vbox.getChildren().removeAll();

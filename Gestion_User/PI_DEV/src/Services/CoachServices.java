@@ -74,7 +74,7 @@ public class CoachServices implements I_SERVICE<User>{
     public void update(User c) {
         GeneralServices gs=new GeneralServices();
     String mdp=gs.EncryptMdp(c.getMdp());
-     String req = "UPDATE user SET nom ='" + c.getNom() + "',prenom ='" + c.getPrenom() + "',email='" + c.getEmail()+ "',pseudo='" + c.getPseudo()+ "',mdp = '" +mdp+ "',tel = '" + c.getTel()+ "',age ='" + c.getAge()+ "',specialite='" + c.getSpecialite()+ "',salaire='" + c.getSalaire()+ "') WHERE id_user = '"+c.getId_user()+"'";
+     String req = "UPDATE user SET nom ='" + c.getNom() + "',prenom ='" + c.getPrenom() + "',email='" + c.getEmail()+ "',pseudo='" + c.getPseudo()+ "',mdp = '" +mdp+ "',tel = '" + c.getTel()+ "',age ='" + c.getAge()+ "',specialite='" + c.getSpecialite()+ "',salaire='" + c.getSalaire()+ "' WHERE id_user = '"+c.getId_user()+"'";
         try {
             ste = conn.createStatement();
             ste.executeUpdate(req);
