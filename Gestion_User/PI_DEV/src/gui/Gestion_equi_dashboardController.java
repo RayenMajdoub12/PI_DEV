@@ -41,6 +41,7 @@ public class Gestion_equi_dashboardController implements Initializable {
                     Stage stage = new Stage();
                     FXMLLoader fx = new FXMLLoader();
                     Pane root = fx.load(getClass().getResource("livraison.fxml").openStream());   
+                        root.getStylesheets().add(getClass().getResource("CSS.css").toString());
                     stage.setScene(new Scene(root));
                     stage.initStyle(StageStyle.TRANSPARENT);
                     stage.showAndWait();
@@ -55,6 +56,7 @@ public class Gestion_equi_dashboardController implements Initializable {
                     Stage stage = new Stage();
                     FXMLLoader fx = new FXMLLoader();
                     Pane root = fx.load(getClass().getResource("produit.fxml").openStream());
+                        root.getStylesheets().add(getClass().getResource("CSS.css").toString());
                     stage.setScene(new Scene(root));
                     stage.initStyle(StageStyle.TRANSPARENT);
                     stage.showAndWait();

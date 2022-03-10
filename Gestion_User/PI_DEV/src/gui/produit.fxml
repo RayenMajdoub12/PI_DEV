@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProduitController">
+<AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="1280.0" styleClass="main_dashboard_background" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProduitController">
    <children>
-      <AnchorPane id="AnchorPane" layoutX="24.0" layoutY="25.0" prefHeight="482.0" prefWidth="524.0">
+      <AnchorPane id="AnchorPane" layoutX="365.0" layoutY="152.0" prefHeight="482.0" prefWidth="524.0" styleClass="tf">
          <children>
             <VBox layoutX="14.0" layoutY="29.0" prefHeight="197.0" prefWidth="97.0" spacing="15.0">
                <children>
@@ -44,24 +44,24 @@
             </VBox>
             <VBox layoutX="122.0" layoutY="32.0" prefHeight="190.0" prefWidth="201.0" spacing="10.0">
                <children>
-                  <TextField fx:id="tfid" />
-                  <TextField fx:id="tfnom_p" />
-                  <TextField fx:id="tfdesc" />
-                  <TextField fx:id="tfprix" />
-                  <TextField fx:id="tfstock" />
+                  <TextField fx:id="tfid" styleClass="tf_box" />
+                  <TextField fx:id="tfnom_p" styleClass="tf_box" />
+                  <TextField fx:id="tfdesc" styleClass="tf_box" />
+                  <TextField fx:id="tfprix" styleClass="tf_box" />
+                  <TextField fx:id="tfstock" styleClass="tf_box" />
                </children>
             </VBox>
-            <Button fx:id="btninsert" layoutX="370.0" layoutY="49.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="86.0" text="Insert">
+            <Button fx:id="btninsert" layoutX="370.0" layoutY="49.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="86.0" styleClass="trans-btn-search" text="Insert">
                <font>
                   <Font name="Cooper Black" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnupdate" layoutX="370.0" layoutY="94.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="86.0" text="Update">
+            <Button fx:id="btnupdate" layoutX="370.0" layoutY="94.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="86.0" styleClass="trans-btn-search" text="Update">
                <font>
                   <Font name="Cooper Black" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btndelete" layoutX="370.0" layoutY="141.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="86.0" text="Delete">
+            <Button fx:id="btndelete" layoutX="370.0" layoutY="141.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="86.0" styleClass="trans-btn-search" text="Delete">
                <font>
                   <Font name="Cooper Black" size="15.0" />
                </font>
@@ -77,5 +77,10 @@
             </TableView>
          </children>
       </AnchorPane>
+      <Label layoutX="404.0" layoutY="48.0" prefHeight="51.0" prefWidth="473.0" text="Gestion des produits">
+         <font>
+            <Font name="Arial" size="42.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
