@@ -28,17 +28,17 @@
             </HBox>
             <HBox prefHeight="63.0" prefWidth="411.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="165.0" prefWidth="411.0" styleClass="btn_vbox_dashboard" text="Gestion evenement" />
+                  <Button mnemonicParsing="false" onAction="#load_choix_event" prefHeight="165.0" prefWidth="411.0" styleClass="btn_vbox_dashboard" text="Gestion evenement" />
                </children>
             </HBox>
             <HBox prefHeight="63.0" prefWidth="411.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="216.0" prefWidth="411.0" styleClass="btn_vbox_dashboard" text="Gestion blogs" />
+                  <Button mnemonicParsing="false" onAction="#load_choix_blog" prefHeight="216.0" prefWidth="411.0" styleClass="btn_vbox_dashboard" text="Gestion blogs" />
                </children>
             </HBox>
             <HBox prefHeight="63.0" prefWidth="411.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="133.0" prefWidth="411.0" styleClass="btn_vbox_dashboard" text="Gestion produit" />
+                  <Button mnemonicParsing="false" onAction="#load_choix_equi" prefHeight="133.0" prefWidth="411.0" styleClass="btn_vbox_dashboard" text="Gestion des équipements" />
                </children>
             </HBox>
             <HBox prefHeight="63.0" prefWidth="411.0">

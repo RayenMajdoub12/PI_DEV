@@ -9,12 +9,18 @@ import Model.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -48,5 +54,38 @@ public class Main_dashboardController implements Initializable {
 
         }
   }
+    public void  load_choix_equi ()
+  {
+       try {
+            fxml = FXMLLoader.load(getClass().getResource("Gestion_equi_dashboard.fxml"));
+            vbox.getChildren().removeAll();
+            vbox.getChildren().setAll(fxml);
+        } catch (IOException ex) {
+
+        }
+  }
+       public void  load_choix_blog ()
+  {
+            try {
+                    Stage stage = new Stage();
+                    FXMLLoader fx = new FXMLLoader();
+                    Pane root = fx.load(getClass().getResource("bBlog.fxml").openStream());   
+                    stage.setScene(new Scene(root));
+                    stage.initStyle(StageStyle.TRANSPARENT);
+                    stage.showAndWait();
+                } catch (IOException ex) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+  }
+       public void load_choix_event()
+       {
+             try {
+            fxml = FXMLLoader.load(getClass().getResource("Gestion_event_dashboard.fxml"));
+            vbox.getChildren().removeAll();
+            vbox.getChildren().setAll(fxml);
+        } catch (IOException ex) {
+
+        }
+       }
     
 }

@@ -23,7 +23,7 @@ import javafx.stage.StageStyle;
  * @author Rayen
  */
 public class NewFXMain extends Application {
-    
+    public static final String CURRENCY = "DT";
     @Override
     public void start (Stage stage) throws Exception {
     Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
@@ -33,8 +33,6 @@ public class NewFXMain extends Application {
     stage.initStyle (StageStyle. TRANSPARENT);
     stage.show ();
 }
-    
-
     /**
      * @param args the command line arguments
      */
