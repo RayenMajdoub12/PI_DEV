@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="filterfield" prefHeight="700.0" prefWidth="1200.0" styleClass="blue-panel" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Client_SeanceController">
+   <children>
+      <VBox layoutY="-4.0" prefHeight="708.0" prefWidth="250.0" styleClass="vbox_profile" />
+      <VBox layoutX="250.0" prefHeight="100.0" prefWidth="952.0" styleClass="yellow_pane">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Les Seances" textAlignment="CENTER" wrappingWidth="289.30859375">
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="30.0" top="30.0" />
+               </VBox.margin>
+            </Text>
+            <Button fx:id="btn_Acc" alignment="CENTER_RIGHT" contentDisplay="TOP" mnemonicParsing="false" onAction="#GoBack" styleClass="trans-btn-search" text="Acceuil">
+               <VBox.margin>
+                  <Insets left="850.0" top="-40.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <TextField fx:id="filter" layoutX="900.0" layoutY="150.0" prefHeight="31.0" prefWidth="283.0" promptText="Recherche" styleClass="tf_box" />
+      <VBox layoutX="275.0" layoutY="220.0" prefHeight="458.0" prefWidth="897.0">
+         <children>
+            <TableView fx:id="tvsea" prefHeight="507.0" prefWidth="897.0">
+               <columns>
+                  <TableColumn fx:id="colnom" prefWidth="143.0" text="Nom" />
+                  <TableColumn fx:id="coldate" minWidth="0.0" prefWidth="136.0" text="Date" />
+                  <TableColumn fx:id="colheure" prefWidth="116.0" text="Heure" />
+                  <TableColumn fx:id="coldes" prefWidth="501.0" text="Description" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

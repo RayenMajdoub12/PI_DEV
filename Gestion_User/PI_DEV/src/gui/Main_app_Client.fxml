@@ -62,7 +62,7 @@
                         <Insets left="15.0" right="15.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="113.0" styleClass="trans-btn-white-line" text="Programmes" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#open_prog" prefHeight="34.0" prefWidth="113.0" styleClass="trans-btn-white-line" text="Programmes" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -78,7 +78,17 @@
                   <Font name="Impact" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="1122.0" layoutY="86.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="113.0" styleClass="trans-btn-white-line" text="Seances" textFill="WHITE">
+            <Button layoutX="1122.0" layoutY="86.0" mnemonicParsing="false" onAction="#open_sean" prefHeight="34.0" prefWidth="113.0" styleClass="trans-btn-white-line" text="Seances" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="968.0" layoutY="86.0" mnemonicParsing="false" onAction="#open_offre" prefHeight="34.0" prefWidth="139.0" styleClass="trans-btn-white-line" text="Les offres" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="804.0" layoutY="86.0" mnemonicParsing="false" onAction="#open_event" prefHeight="34.0" prefWidth="139.0" styleClass="trans-btn-white-line" text="Les evenements" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

@@ -29,6 +29,12 @@ import javax.swing.JOptionPane;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 import Conn.Datasource;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -113,6 +119,20 @@ public class offrecontroller implements Initializable {
         
     executeQuery(query);
     showoffre();
+     Image img = new Image("/images/success-24.png", 50, 50, false, false);
+               Notifications notificationbuilder = Notifications.create().title("insertion avec succès").
+                    graphic(new ImageView(img)).
+                    hideAfter(Duration.seconds(5)).
+                    position(Pos.BOTTOM_RIGHT).
+                    onAction(new EventHandler<ActionEvent>() {
+
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("clicked on notification");
+                        }
+                    });
+            notificationbuilder.darkStyle();
+            notificationbuilder.show();
      }  
     @FXML
     private void handleButtonAction(ActionEvent offre) {
@@ -141,7 +161,7 @@ public class offrecontroller implements Initializable {
            //String query = "update livraison set id_l= '"+value1+"',date_l= '"+ value3+"',Réf_c= "+"value4"+", état= '"+value5+"' where id_l='"+value1+"' ";
 //            String query = "update livraison set id_l= '"+value1+"
 //',id_a= '"+value2+"',date_l= '"+ value3+"',réf_c= '"+"value4"+"', état= '"+value5+"' where id_l='"+value1+"' ";
-            String query = "update offre set id= "+value1+",nom= '"+value2+"', datedebut= '"+value5+"',datefin= '"+value6+"',description= '"+value7+"' where id='"+value1+"'";
+            String query = "update offre set nom_o= '"+value2+"', datedebut_o= '"+value5+"',datefin_o= '"+value6+"',descr_off= '"+value7+"' where id_offre='"+value1+"'";
 executeQuery(query);
             showoffre();
             JOptionPane.showMessageDialog(null, "evenement Updated");
@@ -149,7 +169,20 @@ executeQuery(query);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }  
-      
+       Image img = new Image("/images/success-24.png", 50, 50, false, false);
+               Notifications notificationbuilder = Notifications.create().title("mise a jour  avec succès").
+                    graphic(new ImageView(img)).
+                    hideAfter(Duration.seconds(5)).
+                    position(Pos.BOTTOM_RIGHT).
+                    onAction(new EventHandler<ActionEvent>() {
+
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("clicked on notification");
+                        }
+                    });
+            notificationbuilder.darkStyle();
+            notificationbuilder.show();
     
     
     
@@ -158,21 +191,35 @@ executeQuery(query);
     }
         private void deleteoffre() {
       //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-       String query = "DELETE FROM offre WHERE id=" + tfoff.getText() + "";
+       String query = "DELETE FROM offre WHERE id_offre=" + tfoff.getText() + "";
 executeQuery(query);
 showoffre();
-    
+
+     Image img = new Image("/images/success-24.png", 50, 50, false, false);
+               Notifications notificationbuilder = Notifications.create().title("suppression avec succès").
+                    graphic(new ImageView(img)).
+                    hideAfter(Duration.seconds(5)).
+                    position(Pos.BOTTOM_RIGHT).
+                    onAction(new EventHandler<ActionEvent>() {
+
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("clicked on notification");
+                        }
+                    });
+            notificationbuilder.darkStyle();
+            notificationbuilder.show();
     }
     public void showoffre()
     {
         tvoff.getItems().clear();
               ObservableList<offre> list=getOffreList();
-        coid_off.setCellValueFactory(new PropertyValueFactory<offre, Integer>("id"));
+           coid_off.setCellValueFactory(new PropertyValueFactory<offre, Integer>("id_offre"));
     //colid_a.setCellValueFactory(new PropertyValueFactory<livraison, Integer>("id_a"));
-    co_nomoff.setCellValueFactory(new PropertyValueFactory<offre, String>("nom"));
-    codateoff .setCellValueFactory(new PropertyValueFactory<offre, String>("datedebut"));
-     codatefinoff .setCellValueFactory(new PropertyValueFactory<offre, String>("datefin"));
-         codescoff .setCellValueFactory(new PropertyValueFactory<offre, String>("description"));
+    co_nomoff.setCellValueFactory(new PropertyValueFactory<offre, String>("nom_o"));
+    codateoff .setCellValueFactory(new PropertyValueFactory<offre, String>("datedebut_o"));
+     codatefinoff .setCellValueFactory(new PropertyValueFactory<offre, String>("datefin_o"));
+         codescoff .setCellValueFactory(new PropertyValueFactory<offre, String>("descr_off"));
      tvoff.setItems(list);//pour affcher les information de la bdd sur la table view
     }
      private void executeQuery(String query) {
@@ -200,7 +247,7 @@ showoffre();
             rs = st.executeQuery(query);
 
             while(rs.next()){
-              offre  offre = new offre(rs.getInt("id"), rs.getString("nom"), rs.getString("datedebut"),rs.getString("datefin"),rs.getString("description"));
+               offre  offre = new offre(rs.getInt("id_offre"), rs.getString("nom_o"), rs.getString("datedebut_o"),rs.getString("datefin_o"),rs.getString("descr_off"));
                 offrelist.add(offre);
             }
                 

@@ -87,5 +87,15 @@ public class Main_dashboardController implements Initializable {
 
         }
        }
+         public void load_choix_seance()
+       {
+             try {
+            fxml = FXMLLoader.load(getClass().getResource("Gestion_seance_dashboard.fxml"));
+            vbox.getChildren().removeAll();
+            vbox.getChildren().setAll(fxml);
+        } catch (IOException ex) {
+
+        }
+       }
     
 }

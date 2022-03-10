@@ -43,7 +43,7 @@
             </HBox>
             <HBox prefHeight="63.0" prefWidth="411.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="133.0" prefWidth="411.0" styleClass="btn_vbox_dashboard" text="Gestion seances" />
+                  <Button mnemonicParsing="false" onAction="#load_choix_seance" prefHeight="133.0" prefWidth="411.0" styleClass="btn_vbox_dashboard" text="Gestion seances" />
                </children>
             </HBox>
          </children>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1200.0" styleClass="main_dashboard_background" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProgrammeController">
+   <children>
+      <VBox layoutY="-8.0" prefHeight="708.0" prefWidth="250.0" styleClass="tf" />
+      <VBox layoutX="248.0" prefHeight="100.0" prefWidth="952.0" styleClass="tf">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion Des programmes" textAlignment="CENTER" wrappingWidth="433.30859375">
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="30.0" top="30.0" />
+               </VBox.margin>
+            </Text>
+            <Button fx:id="btn_Acc" alignment="CENTER_RIGHT" contentDisplay="TOP" mnemonicParsing="false" onAction="#GoBack" styleClass="trans-btn-search" text="Acceuil">
+               <VBox.margin>
+                  <Insets left="850.0" top="-40.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <VBox alignment="BASELINE_LEFT" layoutX="225.0" layoutY="94.0" prefHeight="501.0" prefWidth="350.0" spacing="10.0">
+         <children>
+            <Label text="ID :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfid" promptText="Entrer ID" styleClass="tf_box" />
+            <Label text="Titre :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tftitre" promptText="Entrer Titre" styleClass="tf_box" />
+            <Label text="Categorie :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfcategorie" promptText="Entrer Categorie" styleClass="tf_box" />
+            <Label text="Description :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="tfdes" prefHeight="36.0" prefWidth="228.0" promptText="Description" styleClass="tf_box" />
+         </children>
+         <padding>
+            <Insets left="50.0" top="80.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="631.0" layoutY="138.0" prefHeight="477.0" prefWidth="558.0">
+         <children>
+            <TableView fx:id="tvprogramme" onMouseClicked="#handlemouseAction" prefHeight="472.0" prefWidth="520.0">
+               <columns>
+                  <TableColumn fx:id="colID" prefWidth="42.0" text="ID" />
+                  <TableColumn fx:id="colTitre" prefWidth="123.0" text="Titre" />
+                  <TableColumn fx:id="colcat" prefWidth="123.0" text="Categorie" />
+                  <TableColumn fx:id="coldes" prefWidth="282.0" text="Description" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <Button fx:id="b_ajouter" layoutX="265.0" layoutY="595.0" mnemonicParsing="false" onAction="#Add" prefHeight="47.0" prefWidth="111.0" styleClass="trans-btn-search" text="Add">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="b_delete" layoutX="502.0" layoutY="595.0" mnemonicParsing="false" onAction="#Delete" prefHeight="47.0" prefWidth="111.0" styleClass="trans-btn-search" text="Delete">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="b_update" layoutX="383.0" layoutY="595.0" mnemonicParsing="false" onAction="#Update" prefHeight="47.0" prefWidth="111.0" styleClass="trans-btn-search" text="Update">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

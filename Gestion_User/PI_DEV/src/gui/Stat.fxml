@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.StatController">
+   <children>
+      <VBox layoutX="19.0" layoutY="100.0" prefHeight="500.0" prefWidth="963.0">
+         <children>
+            <BarChart fx:id="stats" prefHeight="558.0" prefWidth="1006.0" title="Statistiques">
+               <xAxis>
+                  <CategoryAxis label="Programme ID" side="BOTTOM" fx:id="x" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis fx:id="y" label="Nombre de Seances" side="LEFT" />
+               </yAxis>
+            </BarChart>
+         </children>
+      </VBox>
+      <VBox prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #3F2B63;">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="GYM GEEKS">
+               <VBox.margin>
+                  <Insets left="400.0" top="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+      <VBox layoutY="600.0" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #3F2B63;">
+         <children>
+            <Button fx:id="btnretour" mnemonicParsing="false" onAction="#GoBack" prefHeight="40.0" prefWidth="100.0" text="Retour">
+               <VBox.margin>
+                  <Insets left="850.0" top="40.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -122,4 +122,72 @@ public class Main_app_ClientController implements Initializable {
         }
 
     }
+
+    @FXML
+    private void open_prog(ActionEvent event) {
+          try {
+            Stage stage = new Stage();
+            FXMLLoader fx = new FXMLLoader();
+            Pane root = fx.load(getClass().getResource("Client_Prog.fxml").openStream());
+        root.getStylesheets().add(getClass().getResource("CSS.css").toString());
+            Client_ProgController CC = fx.getController();
+            stage.setScene(new Scene(root));
+            stage.initStyle(StageStyle.TRANSPARENT);
+
+            stage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+    }
+
+    @FXML
+    private void open_sean(ActionEvent event) {
+            try {
+            Stage stage = new Stage();
+            FXMLLoader fx = new FXMLLoader();
+            Pane root = fx.load(getClass().getResource("Client_Seance.fxml").openStream());
+            root.getStylesheets().add(getClass().getResource("CSS.css").toString());   
+            Client_SeanceController CC = fx.getController();
+            stage.setScene(new Scene(root));
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void open_offre(ActionEvent event) {
+                 try {
+            Stage stage = new Stage();
+            FXMLLoader fx = new FXMLLoader();
+            Pane root = fx.load(getClass().getResource("offre_front.fxml").openStream());
+            root.getStylesheets().add(getClass().getResource("CSS.css").toString());   
+            Offre_frontController CC = fx.getController();
+            stage.setScene(new Scene(root));
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+
+    @FXML
+    private void open_event(ActionEvent event) {
+            try {
+            Stage stage = new Stage();
+            FXMLLoader fx = new FXMLLoader();
+            Pane root = fx.load(getClass().getResource("evenement_front.fxml").openStream());
+            root.getStylesheets().add(getClass().getResource("CSS.css").toString());   
+            Evenement_frontController CC = fx.getController();
+            stage.setScene(new Scene(root));
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

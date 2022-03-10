@@ -30,6 +30,14 @@ import javax.swing.JOptionPane;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 import Conn.Datasource;
+import Services.GeneralServices;
+
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -158,8 +166,20 @@ executeQuery(query);
             JOptionPane.showMessageDialog(null, e);
         }  
       
-    
-    
+     Image img = new Image("/images/success-24.png", 50, 50, false, false);
+               Notifications notificationbuilder = Notifications.create().title("succès de mise a jour").
+                    graphic(new ImageView(img)).
+                    hideAfter(Duration.seconds(5)).
+                    position(Pos.BOTTOM_RIGHT).
+                    onAction(new EventHandler<ActionEvent>() {
+
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("clicked on notification");
+                        }
+                    });
+            notificationbuilder.darkStyle();
+            notificationbuilder.show();
     
     
     
@@ -170,7 +190,20 @@ executeQuery(query);
        String query = "DELETE FROM evenement WHERE id=" + tfideve.getText() + "";
 executeQuery(query);
 showevent();
-    
+ Image img = new Image("/images/success-24.png", 50, 50, false, false);
+               Notifications notificationbuilder = Notifications.create().title("suppression avec succès").
+                    graphic(new ImageView(img)).
+                    hideAfter(Duration.seconds(5)).
+                    position(Pos.BOTTOM_RIGHT).
+                    onAction(new EventHandler<ActionEvent>() {
+
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("clicked on notification");
+                        }
+                    });
+            notificationbuilder.darkStyle();
+            notificationbuilder.show();
     }
 
   
@@ -213,13 +246,26 @@ public ObservableList<evenement> getEventList(){
 
      evenement evenement =tvevents.getSelectionModel().getSelectedItem();
     tfideve.setText("" +evenement.getId());
-   
+    Image img = new Image("/images/success-24.png", 50, 50, false, false);
     //tfdate.setText("" + livraison.getDate_l());
     //tfréf_c.setText("" + livraison.getRéf_c());
     tfnomeve.setText("" + evenement.getNom());
     tfprixeve.setText("" + evenement.getPrix());
     tflieu.setText("" + evenement.getLieu());
      tfdescriptioneve.setText("" + evenement.getDescription());
+                Notifications notificationbuilder = Notifications.create().title("insertion avec succès ").
+                    graphic(new ImageView(img)).
+                    hideAfter(Duration.seconds(5)).
+                    position(Pos.BOTTOM_RIGHT).
+                    onAction(new EventHandler<ActionEvent>() {
+
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("clicked on notification");
+                        }
+                    });
+            notificationbuilder.darkStyle();
+            notificationbuilder.show();
     
     }
 
@@ -238,10 +284,12 @@ public ObservableList<evenement> getEventList(){
     
     }
 
-    @FXML
-    private void mailing(ActionEvent event) {
+     @FXML
+    private void mailing(ActionEvent event) throws Exception {
+         GeneralServices Gs = new GeneralServices () ; 
+         String htmlcode = "<body style='box-sizing: border-box;'><div style='position: relative;max-width: 800px;margin: auto 0;'><div><img style='vertical-align:middle;width:100%;'><div style='font-size: 20px; position:relative;text-align: center;background:black; height: 50  px;'><table style='width: 80%;margin-left: 15%;'><tr><td style='width: 70%;color: rgb(255,249,234); text-align: center;'>new event has been add ! take a look soon </td><td style='font-size: 30px;color: rgb(243,184,68);text-align:left;width: 30%;'></td></tr></table></div><img style='vertical-align:middle;width:100%;' src='https://www.linkpicture.com/q/4_678.png'></div></body>";
+         Gs.sendMail("mohamedgasmi1998@gmail.com", htmlcode);
     }
-     
      
 }
 

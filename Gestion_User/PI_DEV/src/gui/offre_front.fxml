@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="1280.0" styleClass="blue-panel" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Offre_frontController">
+   <children>
+      <TableView fx:id="tvoff" layoutX="436.0" layoutY="120.0" prefHeight="513.0" prefWidth="742.0">
+         <columns>
+            <TableColumn fx:id="coid_off" minWidth="0.0" prefWidth="72.0" text="id_offre" />
+            <TableColumn fx:id="co_nomoff" minWidth="0.0" prefWidth="64.0" text="nom offre" />
+            <TableColumn fx:id="codateoff" minWidth="0.0" prefWidth="102.0" text="date debut" />
+            <TableColumn fx:id="codatefinoff" maxWidth="150.0" minWidth="0.0" prefWidth="79.0" text="date fin" />
+            <TableColumn fx:id="codescoff" maxWidth="140.0" minWidth="0.0" prefWidth="92.0" text="description" />
+         </columns>
+      </TableView>
+      <VBox prefHeight="680.0" prefWidth="411.0" styleClass="vbox_coach" />
+   </children>
+</AnchorPane>

@@ -45,13 +45,25 @@ public class Main_app_CoachController implements Initializable {
             System.out.println(ex);
         }
     }
-    public void Gestion_des_seances()
+    public void Gestion_des_seances()       
     {
-        
+              try {
+            fxml = FXMLLoader.load(getClass().getResource("Seance.fxml"));
+            pane.getChildren().removeAll();
+            pane.getChildren().setAll(fxml);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
     }
      public void Gestion_des_programmes()
     {
-        
+             try {
+            fxml = FXMLLoader.load(getClass().getResource("Programme.fxml"));
+            pane.getChildren().removeAll();
+            pane.getChildren().setAll(fxml);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
     }
     
 }
